@@ -20,7 +20,7 @@ services:
   db-mongodb:
     image: mongo
     ports:
-      - "28018:28018"
+      - "27017:27017"
     volumes:
       - ./mongodb/data:/data/db
       - ./mongodb/cnf:/etc/mongo
