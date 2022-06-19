@@ -1,0 +1,39 @@
+version: "3.5"
+
+services:
+  web-server-nginx:
+    image: nginx
+    volumes:
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - /Users/nuung/Desktop/CodingStudy/FPM-project/fpm-be/static:/etc/nginx/static
+      - /Users/nuung/Desktop/CodingStudy/FPM-project/fpm-be/media:/etc/nginx/media
+      - ./front-end:/usr/share/nginx
+      - ./nginx/log:/var/log/nginx
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_PORT=80
+    networks:
+      - fpm-project-network
+
+  db-mongodb:
+    image: mongo
+    ports:
+      - "28018:28018"
+    volumes:
+      - ./mongodb/data:/data/db
+      - ./mongodb/cnf:/etc/mongo
+      - ./mongodb/log:/var/log/mongodb
+    entrypoint: ["mongod", "-f", "/etc/mongo/mongod.conf"]
+    env_file: .env
+    environment:
+      TZ: Asia/Seoul
+    networks:
+      - fpm-project-network 
+    restart: always
+
+networks:
+  fpm-project-network:
+    driver: bridge
+
