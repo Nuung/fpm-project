@@ -6,8 +6,8 @@ services:
     volumes:
       - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - /Users/nuung/Desktop/CodingStudy/FPM-project/fpm-be/static:/etc/nginx/static
-      - /Users/nuung/Desktop/CodingStudy/FPM-project/fpm-be/media:/etc/nginx/media
+      - /FPM-project/fpm-be/static:/etc/nginx/static
+      - /FPM-project/fpm-be/media:/etc/nginx/media
       - ../fpm-fe/dist:/usr/share/nginx
       - ./nginx/log:/var/log/nginx
     ports:
