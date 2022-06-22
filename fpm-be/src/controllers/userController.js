@@ -147,7 +147,7 @@ export const makeDumpUser = async (req, res) => {
     } catch (error) {
         return res.status(400).json({msg: "User dump data 생성 실패"});
     }
-}
+};
 
 // dump data 겸 모든 user 지우기
 export const deletAllUser = async (req, res) => {
@@ -157,4 +157,4 @@ export const deletAllUser = async (req, res) => {
     } catch (error) {
         return res.status(400).json({msg: "User delete all 실패"});   
     }
-}
+};

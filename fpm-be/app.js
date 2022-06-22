@@ -48,9 +48,11 @@ app.set('jwt-secret', process.env.JWT_SECRET); // set the secret key variable fo
 // ==================== API Routing Setting ==================== //
 
 import userRouter from './src/routes/userRouter.js';
+import depositRouter from './src/routes/depositRouter.js';
 
 // router mapping
 userRouter(app, '/api/user');
+depositRouter(app, '/api/deposit');
 
 
 
