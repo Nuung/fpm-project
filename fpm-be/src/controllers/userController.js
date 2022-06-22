@@ -2,8 +2,11 @@
 
 import {
     makeToken, makeRefreshToken,
-    findUserById, findUserByPwd, createUser
+    findUserById, findUserByPwd, createUser,
+    deleteUserAll
 } from '../service/userService.js';
+
+import { makeUserDumpData } from '../models/data_generate/userDump.js';
 
 /**
  * @descriotion 사용자 회원가입
@@ -134,3 +137,24 @@ export const getUser = async (req, res) => {
         return res.status(401).json({ error });
     }
 };
+
+
+// dump data 만들기
+export const makeDumpUser = async (req, res) => {
+    try {
+        await makeUserDumpData();
+        return res.status(201).json({msg: "User dump data 생성 성공"});
+    } catch (error) {
+        return res.status(400).json({msg: "User dump data 생성 실패"});
+    }
+}
+
+// dump data 겸 모든 user 지우기
+export const deletAllUser = async (req, res) => {
+    try {
+        const result = await deleteUserAll();
+        return res.status(201).json({msg: `User delete all ${result}개 생성 성공`});
+    } catch (error) {
+        return res.status(400).json({msg: "User delete all 실패"});   
+    }
+}

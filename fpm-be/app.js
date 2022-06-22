@@ -24,6 +24,7 @@ mongoose.connect(`mongodb://${dbInfo.username}:${dbInfo.password}@${dbInfo.host}
         console.log("DB Connection Error: " + err.message);
     });
 
+
 app.use(logger('dev'));
 app.use(express.json()); // body-parser setting ~ express include body-parser from 4.X version
 app.use(express.urlencoded({ extended: true }));

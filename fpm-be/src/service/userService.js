@@ -57,4 +57,27 @@ export const createUser = async (body) => {
         console.error(err);
         return err;
     }
-}
+};
+
+// user delete
+export const deleteUser = async (body) => {
+    const { userId } = body;
+    try {
+        const {acknowledged, deletedCount} = await User.deleteOne({ userId: userId });
+        return deletedCount;
+    } catch (err) {
+        console.error(err);
+        return err;
+    }
+};
+
+// user delete all
+export const deleteUserAll = async () => {
+    try {
+        const {acknowledged, deletedCount} = await User.deleteMany({});
+        return deletedCount;
+    } catch (err) {
+        console.error(err);
+        return err;
+    }
+};

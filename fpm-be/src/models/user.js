@@ -14,15 +14,13 @@ const userSchema = mongoose.Schema({ // 몽구스 요청하고 필드 정의
         type: String,
         required: true
     },
-    group: {
-        type: String,
-        default: "default_admin"
-    },
+    hashtag: Array,
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
+
 
 // DeprecationWarning: 
 // collection.ensureIndex is deprecated. Use createIndexes instead. 메세지 안보이게
