@@ -146,9 +146,6 @@ export const getUserHashtag = async (req, res) => {
     const userId = req.params.id;
     const user = await findUserById(userId);
     if (req.user.id === userId) {
-        delete user._doc._id;
-        delete user._doc.password;
-
         // hashtag가 만들어져 있냐 안만들어져 있냐, 안만들어져 있으면 만들어서 update
         if (user.hashtag.length === 0) {
             const updatedUser = await updateUserHashTag(user);
@@ -156,7 +153,7 @@ export const getUserHashtag = async (req, res) => {
                 "user_hashtag": updatedUser.hashtag
             });
         }
-        // 만들어져 있는 user면 그냥 hashtag 바로 return 
+        // 만들어져 있는 user면 그냥 hashtag 바로 return
         else {
             return res.status(200).json({
                 "user_hashtag": user.hashtag

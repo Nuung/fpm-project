@@ -81,18 +81,20 @@ export const updateUserHashTag = async (user) => {
             accu.set(curr, (accu.get(curr)||0) + 1) ;
             return accu;
         },new Map());
-        
+
         // 그 map을 내림차순으로 다시 정렬
         const sortedResult = new Map([...result].sort((a, b) => b[1] - a[1]));
 
         // 그럼 상단 4개만 hashTagList에 추가한다!
-        hashTagList.push(sortedResult.keys().slice(3));
         hashTagList.push(user.gender);
         hashTagList.push(user.age);
-        
+        hashTagList.push(...[...sortedResult.keys()].slice(0, 3));
+
         // step3. 분류된 hashtag array 값으로 user를 update 한다. 그리고 그 updated 된 user 를 return
-        const updatedUser = await findOneAndUpdate({ userId: user.userId }, { hashtag: hashTagList });
+        await User.findOneAndUpdate({ userId: user.userId }, { hashtag: hashTagList }).exec();
+        const updatedUser = await User.findOne({ userId: user.userId });
         return updatedUser;
+
     } catch (error) {
         console.error(err);
         return err;

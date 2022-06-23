@@ -51,7 +51,7 @@ const makeResList = (howMany) => {
     for (let i = 0; i < howMany; i++) {
         returnResList.push({
             tran_date: randomDate(parseDate("20220601"), parseDate("20220631")),
-            tran_time: Math.floor(Math.random() * 10000 + "00"),
+            tran_time: "11300",
             inout_type: "입금",
             tran_type: "현금",
             printed_content: randomCategory(), // 여기에 분류 넣자 그냥

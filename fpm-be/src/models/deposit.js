@@ -4,8 +4,7 @@ import mongoose from 'mongoose';
 const depositSchema = mongoose.Schema({ 
     userId: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     bank_tran_id: String,
     bank_tran_date: Date,
