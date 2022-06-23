@@ -1,0 +1,13 @@
+{
+  "rsp_code": "세부 응답코드 ",
+  "rsp_msg": "세부 응답메시지 ",
+  "search_timestamp": "조회 타임스탬프 ",
+  "irp_cnt": "보유계좌수 ",
+  "irp_list": [
+    {
+      "prod_name": "상품명 ",
+      "account_num": "계좌번호 ",
+      "is_consent": "전송요구 여부"
+    }
+  ]
+}

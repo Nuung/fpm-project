@@ -1,0 +1,19 @@
+{
+  "rsp_code": "세부 응답코드 ",
+  "rsp_msg": "세부 응답메시지 ",
+  "search_timestamp": "조회 타임스탬프 ",
+  "next_page": "다음 페이지 기준개체 ",
+  "irp_cnt": "운용상품수 ",
+  "irp_list": [
+    {
+      "irp_name": "개별운용상품명 ",
+      "irp_no": "상품가입번호 ",
+      "irp_type": "상품유형 ",
+      "eval_amt": "평가금액 ",
+      "inv_principal": "납입(투자)원금 ",
+      "fund_num": "보유좌수 ",
+      "open_date": "신규일 ",
+      "exp_date": "만기일 "
+    }
+  ]
+}

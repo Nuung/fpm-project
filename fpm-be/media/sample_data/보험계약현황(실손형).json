@@ -1,0 +1,39 @@
+{
+  "insureList" : [
+    {
+      "insureType": "실손",
+      "insureNum": "M20221948006*****",
+      "insureContractor": "유관우",
+      "insureCompany": "현대해상화재보험",
+      "insureDetail": [
+        {
+          "number" : "1",
+          "lossClassfication": "기타실손",
+          "guaranteedName": "교통사고벌금(대인)",
+          "guaranteedStatus": "정상",
+          "guaranteedStartDate": "2013.04.23",
+          "guaranteedEndDate": "2033.04.23",
+          "guaranteedAmount": 20000000
+        },
+        {
+          "number" : "2",
+          "lossClassfication": "기타실손",
+          "guaranteedName": "가족생활배상책임담보",
+          "guaranteedStatus": "정상",
+          "guaranteedStartDate": "2013.04.23",
+          "guaranteedEndDate": "2033.04.23",
+          "guaranteedAmount": 100000000
+        },
+        {
+          "number" : "3",
+          "lossClassfication": "기타실손",
+          "guaranteedName": "중상해 교통사고처리지원금담보",
+          "guaranteedStatus": "정상",
+          "guaranteedStartDate": "2013.04.23",
+          "guaranteedEndDate": "2033.04.23",
+          "guaranteedAmount": 30000000
+        }
+      ]
+    }
+  ]
+}

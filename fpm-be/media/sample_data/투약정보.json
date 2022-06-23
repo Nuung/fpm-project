@@ -1,0 +1,18 @@
+{
+  "Status": "OK",
+  "StatusSeq": 0,
+  "Message": "성공",
+  "ResultList": [
+    {
+      "Idx": "1",
+      "ByungEuiwonYakGukMyung": "손이비인후과의원[서대문구 수색로]",
+      "JinRyoGaesiIl": "2022-03-15",
+      "JinRyoHyungTae": "일반외래",
+      "BangMoonIpWonIlsoo": "1",
+      "CheoBangHoiSoo": "0",
+      "TuYakYoYangHoiSoo": "1",
+      "RetrieveTreatmentInjectionInformationPersonDetailList": [
+      ]
+    }
+  ]
+}

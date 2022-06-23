@@ -1,0 +1,17 @@
+{
+  "isSuccess": true,
+  "message": "성공",
+  "total" : 2,
+  "productList" : [
+    {
+      "productName" : "로지텍 MX MASTER 3 무선 마우스 MR0077 + 마우스 피트 세트",
+      "productPrice": 138790,
+      "productAmt": 1
+    },
+    {
+      "productName" : "에어 데이즈 마스크 KF94 대형 50매입 1박스\n",
+      "productPrice": 20660,
+      "productAmt": 2
+    }
+  ]
+}
