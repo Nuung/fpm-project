@@ -83,8 +83,8 @@ const makeResList = (howMany) => {
 };
 
 const typeOfTransaction = () => {
-    // 5 ~ 50개 사이로 res_list 랜덤 생성
-    const newResList = makeResList(Math.floor(Math.random() * (50 - 5 + 1)) + 5);
+    // 5 ~ 100개 사이로 res_list 랜덤 생성
+    const newResList = makeResList(Math.floor(Math.random() * (100 - 5 + 1)) + 5);
     return {
         api_tran_id: "2ffd133a-d17a-431d-a6a5",
         api_tran_dtm: "20190910101921567",

@@ -1,10 +1,34 @@
 'use strict';
 
 import {
-    deleteDepositAll
+    findAllByUserId,
+    deleteDepositAll,
 } from '../service/depositService.js';
+import { findUserById } from '../service/userService.js';
 
 import { makeDepositDumpData } from '../models/data_generate/depositDump.js';
+
+
+// Auth 값 기반으로 자신의 deposit 정보 모두 얻어오기
+export const getAllDeposits = async (req, res) => {
+    if (req.user.id) {
+        const user = await findUserById(req.user.id);
+        const userDeposits = await findAllByUserId(user.userId);
+        const data = {
+            user,
+            userDeposits,
+        }
+        return res.status(200).json({ data });
+    }
+    else {
+        const error = '올바르지 않은 접근 입니다.';
+        return res.status(401).json({ error });
+    }
+};
+
+
+// ===================================================================================== //
+
 
 // dump data 만들기
 export const makeDumpDeposit = async (req, res) => {
