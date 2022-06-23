@@ -41,6 +41,17 @@ const randomCategory = () => {
     return category[randomIndex];
 };
 
+const randomType = () => {
+    const category = ["입금", "출금"];
+    const randomIndex = Math.floor(Math.random() * category.length);
+    return category[randomIndex];
+};
+
+const randomBankName = () => {
+    const category = ["신한은행", "하나은행", "국민은행", "토스뱅크", "카카오뱅크", "농협", "신협"];
+    const randomIndex = Math.floor(Math.random() * category.length);
+    return category[randomIndex];    
+}
 
 /**
  * @param {*} howMany ex) res_list를 몇개나 만들건지, 이것 또한 랜덤값으로
@@ -49,14 +60,22 @@ const randomCategory = () => {
 const makeResList = (howMany) => {
     const returnResList = new Array();
     for (let i = 0; i < howMany; i++) {
+
+        // 입출금 랜덤 - 그에 따른 +- 부호 세팅
+        const inoutType = randomType();
+        let tranAmt = "";
+        if (inoutType === "출금") tranAmt = `-${(Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100}`
+        else tranAmt = `${(Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100}`
+            
+        // 데이터 insert
         returnResList.push({
-            tran_date: randomDate(parseDate("20220601"), parseDate("20220631")),
+            tran_date: randomDate(parseDate("20220501"), parseDate("20220631")),
             tran_time: "11300",
-            inout_type: "입금",
+            inout_type: inoutType, // "입금" or "출금",
             tran_type: "현금",
             printed_content: randomCategory(), // 여기에 분류 넣자 그냥
-            tran_amt: (Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100,
-            after_balance_amt: "-1000000",
+            tran_amt: tranAmt,
+            after_balance_amt: "-1000000",  // 안쓰는 값
             branchName: "분당점"
         });
     }
@@ -76,7 +95,7 @@ const typeOfTransaction = () => {
         bank_code_tran: "097",
         bank_rsp_code: "000",
         bank_rsp_message: "",
-        bank_name: "오픈은행",
+        bank_name: randomBankName(),
         fintech_use_num: "123456789012345678901234",
         balance_amt: (Math.floor(Math.random() * (100000000 - 1000000 + 1)) + 1000000) * 100,
         page_record_cnt: "25",

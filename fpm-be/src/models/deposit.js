@@ -16,7 +16,7 @@ const depositSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
-});
+}, { versionKey: false });
 
 // collection 이름 정하기
 depositSchema.set('collection', 'deposit'); 

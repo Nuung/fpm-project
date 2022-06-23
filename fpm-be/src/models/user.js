@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({ // 몽구스 요청하고 필드 정의
         type: Date,
         default: Date.now
     }
-});
+}, { versionKey: false });
 
 
 // DeprecationWarning: 
