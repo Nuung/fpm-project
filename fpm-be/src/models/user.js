@@ -14,12 +14,14 @@ const userSchema = mongoose.Schema({ // 몽구스 요청하고 필드 정의
         type: String,
         required: true
     },
+    gender: String, // 성별
+    age: String, // 10대 20대 30대, FE에서 그렇게 보내줘야함
     hashtag: Array,
     createdAt: {
         type: Date,
         default: Date.now
     }
-});
+}, { versionKey: false });
 
 
 // DeprecationWarning: 
