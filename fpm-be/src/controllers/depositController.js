@@ -20,7 +20,7 @@ export const makeDumpDeposit = async (req, res) => {
 export const deletAllDeposit = async (req, res) => {
     try {
         const result = await deleteDepositAll();
-        return res.status(201).json({msg: `Deposit delete all ${result}개 생성 성공`});
+        return res.status(201).json({msg: `Deposit delete all ${result}개 삭제 성공`});
     } catch (error) {
         return res.status(400).json({msg: "Deposit delete all 실패"});   
     }

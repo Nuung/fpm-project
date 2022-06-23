@@ -2,6 +2,7 @@
 import Deposit from "../deposit.js";
 import User from "../user.js";
 
+
 /**
  * 
  * @param {*} str ex) 20220101
@@ -9,9 +10,9 @@ import User from "../user.js";
  */
 const parseDate = (str) => {
     if(!/^(\d){8}$/.test(str)) return "invalid date";
-    var y = str.substr(0,4),
-        m = str.substr(4,2),
-        d = str.substr(6,2);
+    const y = str.substr(0,4),
+          m = str.substr(4,2),
+          d = str.substr(6,2);
     return new Date(y,m,d);
 }
 
@@ -34,7 +35,17 @@ const randomDate = (start, end) => {
     return [year, month, day].join('');
 };
 
+const randomCategory = () => {
+    const category = ["뮤지컬", "독서", "영화", "베이커리", "카페", "아이돌", "편의점", "의류", "화장품", "외식", "게임", "스포츠", "병원", "교통", "생필품"];
+    const randomIndex = Math.floor(Math.random() * category.length);
+    return category[randomIndex];
+};
 
+
+/**
+ * @param {*} howMany ex) res_list를 몇개나 만들건지, 이것 또한 랜덤값으로
+ * @returns 
+ */
 const makeResList = (howMany) => {
     const returnResList = new Array();
     for (let i = 0; i < howMany; i++) {
@@ -43,8 +54,8 @@ const makeResList = (howMany) => {
             tran_time: Math.floor(Math.random() * 10000 + "00"),
             inout_type: "입금",
             tran_type: "현금",
-            printed_content: "통장인자내용",
-            tran_amt: "450000",
+            printed_content: randomCategory(), // 여기에 분류 넣자 그냥
+            tran_amt: (Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100,
             after_balance_amt: "-1000000",
             branchName: "분당점"
         });
@@ -67,7 +78,7 @@ const typeOfTransaction = () => {
         bank_rsp_message: "",
         bank_name: "오픈은행",
         fintech_use_num: "123456789012345678901234",
-        balance_amt: Math.floor(Math.random() * 1000000 + "00"), // 이거 가변값으로
+        balance_amt: (Math.floor(Math.random() * (100000000 - 1000000 + 1)) + 1000000) * 100,
         page_record_cnt: "25",
         next_page_yn: "Y",
         befor_inquiry_trace_info: "1T201806171",
