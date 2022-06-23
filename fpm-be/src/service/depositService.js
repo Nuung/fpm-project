@@ -11,3 +11,18 @@ export const deleteDepositAll = async () => {
         return err;
     }
 };
+
+// get total amount
+export const getTotalDepoAmt = async (userId) => {
+    try {
+        const depositList = await Deposit.find({"userId":userId});
+        let amount = 0;
+        depositList.forEach(element => {
+            amount += element.balance_amt;
+        });
+        return amount;
+    } catch (err) {
+        console.error(err);
+        return err;
+    }
+};
