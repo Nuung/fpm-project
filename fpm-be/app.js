@@ -24,6 +24,7 @@ mongoose.connect(`mongodb://${dbInfo.username}:${dbInfo.password}@${dbInfo.host}
         console.log("DB Connection Error: " + err.message);
     });
 
+
 app.use(logger('dev'));
 app.use(express.json()); // body-parser setting ~ express include body-parser from 4.X version
 app.use(express.urlencoded({ extended: true }));
@@ -47,9 +48,11 @@ app.set('jwt-secret', process.env.JWT_SECRET); // set the secret key variable fo
 // ==================== API Routing Setting ==================== //
 
 import userRouter from './src/routes/userRouter.js';
+import depositRouter from './src/routes/depositRouter.js';
 
 // router mapping
 userRouter(app, '/api/user');
+depositRouter(app, '/api/deposit');
 
 
 
