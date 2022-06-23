@@ -3,7 +3,8 @@
 import {
     makeToken, makeRefreshToken,
     findUserById, findUserByPwd, createUser,
-    deleteUserAll
+    deleteUserAll,
+    updateUserHashTag
 } from '../service/userService.js';
 
 import { makeUserDumpData } from '../models/data_generate/userDump.js';
@@ -24,7 +25,7 @@ export const signUp = async (req, res) => {
             return res.status(401).json({ error });
         }
         else {
-            const newUser = createUser(req.body);
+            const newUser = await createUser(req.body);
 
             // sign up 과 동시에 토큰 발급 
             const token = makeToken(userId);
@@ -138,6 +139,33 @@ export const getUser = async (req, res) => {
     }
 };
 
+// ===================================================================================== //
+
+// user hash tag 가져오기
+export const getUserHashtag = async (req, res) => {
+    const userId = req.params.id;
+    const user = await findUserById(userId);
+    if (req.user.id === userId) {
+        // hashtag가 만들어져 있냐 안만들어져 있냐, 안만들어져 있으면 만들어서 update
+        if (user.hashtag.length === 0) {
+            const updatedUser = await updateUserHashTag(user);
+            return res.status(200).json({
+                "user_hashtag": updatedUser.hashtag
+            });
+        }
+        // 만들어져 있는 user면 그냥 hashtag 바로 return
+        else {
+            return res.status(200).json({
+                "user_hashtag": user.hashtag
+            });
+        }
+    }
+    else {
+        const error = '올바르지 않은 접근 입니다.';
+        return res.status(401).json({ error });
+    }
+};
+
 
 // dump data 만들기
 export const makeDumpUser = async (req, res) => {
@@ -153,7 +181,7 @@ export const makeDumpUser = async (req, res) => {
 export const deletAllUser = async (req, res) => {
     try {
         const result = await deleteUserAll();
-        return res.status(201).json({msg: `User delete all ${result}개 생성 성공`});
+        return res.status(201).json({msg: `User delete all ${result}개 삭제 성공`});
     } catch (error) {
         return res.status(400).json({msg: "User delete all 실패"});   
     }

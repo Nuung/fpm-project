@@ -1,6 +1,20 @@
 
 import Deposit from '../models/deposit.js';
 
+
+// find all by user id 
+export const findAllByUserId = async (userId) => {
+    try {
+        const userDeposits = await Deposit.find({ userId: userId }).exec()
+        return userDeposits;
+    } catch (err) {
+        console.error(err);
+        return err;
+    }
+}
+
+
+
 // Deposit delete all
 export const deleteDepositAll = async () => {
     try {

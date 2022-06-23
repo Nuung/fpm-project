@@ -4,8 +4,7 @@ import mongoose from 'mongoose';
 const depositSchema = mongoose.Schema({ 
     userId: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     bank_tran_id: String,
     bank_tran_date: Date,
@@ -17,7 +16,7 @@ const depositSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
-});
+}, { versionKey: false });
 
 // collection 이름 정하기
 depositSchema.set('collection', 'deposit'); 
