@@ -3,7 +3,7 @@ import Deposit from '../models/deposit.js';
 
 
 // find all by user id 
-export const findAllByUserId = async (userId) => {
+export const findDepositAllByUserId = async (userId) => {
     try {
         const userDeposits = await Deposit.find({ userId: userId }).exec()
         return userDeposits;

@@ -49,13 +49,12 @@ app.set('jwt-secret', process.env.JWT_SECRET); // set the secret key variable fo
 
 import userRouter from './src/routes/userRouter.js';
 import depositRouter from './src/routes/depositRouter.js';
+import loanRouter from './src/routes/loanRouter.js';
 
 // router mapping
 userRouter(app, '/api/user');
 depositRouter(app, '/api/deposit');
-
-
-
+loanRouter(app, '/api/loan');
 
 
 

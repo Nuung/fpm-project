@@ -1,7 +1,7 @@
 'use strict';
 
 import {
-    findAllByUserId,
+    findDepositAllByUserId,
     deleteDepositAll,
 } from '../service/depositService.js';
 import { findUserById } from '../service/userService.js';
@@ -13,7 +13,12 @@ import { makeDepositDumpData } from '../models/data_generate/depositDump.js';
 export const getAllDeposits = async (req, res) => {
     if (req.user.id) {
         const user = await findUserById(req.user.id);
-        const userDeposits = await findAllByUserId(user.userId);
+        if (!user) {
+            const error = '올바르지 않은 접근 입니다.';
+            return res.status(401).json({ error });            
+        }
+                
+        const userDeposits = await findDepositAllByUserId(user.userId);
         const data = {
             user,
             userDeposits,

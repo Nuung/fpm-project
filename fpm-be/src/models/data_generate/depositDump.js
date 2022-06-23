@@ -120,7 +120,7 @@ export const makeDepositDumpData = async () => {
                 bank_code_tran: bank_code_tran,
                 bank_name: bank_name,
                 balance_amt: balance_amt,
-                res_list, res_list
+                res_list: res_list
             });
             await newDeposit.save();            
         }

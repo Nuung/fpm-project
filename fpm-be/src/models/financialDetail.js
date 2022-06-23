@@ -37,11 +37,6 @@ const financialDetailSchema = mongoose.Schema({
 // collection 이름 정하기
 financialDetailSchema.set('collection', 'financialDetail'); 
 
-// 모델에 간단한 메서드 추가
-financialDetailSchema.methods.generate_test_data = function () {
-    return this.nickName || this.userId;
-};
-
 // 모델만들고 내보내기
 const FinancialDetail = mongoose.model("FinancialDetail", financialDetailSchema);
 export default FinancialDetail;
