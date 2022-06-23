@@ -1,0 +1,48 @@
+{
+  "insureList" : [
+    {
+      "insureType": "정액형",
+      "insureNum": "513102742*****",
+      "insureContractor": "유관우",
+      "insureStartDate": "20130423",
+      "insureEndDate": "20330423",
+      "insurePrice": 12000,
+      "paymentCycle" : "M",
+      "paymentPeriod" : "20Y",
+      "insureDetail": [
+        {
+          "number": 1,
+          "contractor" : "유관우",
+          "guaranteedType": "질병사망",
+          "guaranteedName": "일반사망",
+          "guaranteedStatus": "정상",
+          "guaranteedAmount": 30000000
+        },
+        {
+          "number": 2,
+          "contractor" : "유관우",
+          "guaranteedType": "특정질병사망",
+          "guaranteedName": "일반사망",
+          "guaranteedStatus": "정상",
+          "guaranteedAmount": 30000000
+        },
+        {
+          "number": 3,
+          "contractor" : "유관우",
+          "guaranteedType": "암사망",
+          "guaranteedName": "일반사망",
+          "guaranteedStatus": "정상",
+          "guaranteedAmount": 30000000
+        },
+        {
+          "number": 4,
+          "contractor" : "유관우",
+          "guaranteedType": "상해사망",
+          "guaranteedName": "일반사망",
+          "guaranteedStatus": "정상",
+          "guaranteedAmount": 30000000
+        }
+      ]
+    }
+  ]
+}

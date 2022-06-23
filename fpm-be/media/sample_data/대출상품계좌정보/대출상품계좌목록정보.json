@@ -1,0 +1,48 @@
+{
+  "rsp_code": "A0000",
+  "rsp_msg": "세부 응답메시지 ",
+  "next_page": "다음 페이지 기준개체 ",
+  "trans_cnt": "거래목록수 ",
+  "trans_list": [
+    {
+      "trans_dtime": "거래일시 또는 거래일자 ",
+      "trans_no": "거래번호 ",
+      "trans_type": "거래유형 ",
+      "currency_code": "통화코드 ",
+      "trans_amt": "거래금액 ",
+      "balance_amt": "거래 후 대출잔액 ",
+      "principal_amt": "거래금액 중 원금 ",
+      "int_amt": "거래금액 중 이자 ",
+      "ret_int_amt": "환출이자 ",
+      "int_cnt": "이자적용수 ",
+      "int_list": [
+        {
+          "int_start_date ": "이자적용시작일 ",
+          "int_end_date ": "이자적용종료일 ",
+          "int_rate ": "적용이율 ",
+          "applied_int_amt": "이자금액"
+        }
+      ]
+    },
+    {
+      "trans_dtime": "거래일시 또는 거래일자 ",
+      "trans_no": "거래번호 ",
+      "trans_type": "거래유형 ",
+      "currency_code": "통화코드 ",
+      "trans_amt": "거래금액 ",
+      "balance_amt": "거래 후 대출잔액 ",
+      "principal_amt": "거래금액 중 원금 ",
+      "int_amt": "거래금액 중 이자 ",
+      "ret_int_amt": "환출이자 ",
+      "int_cnt": "이자적용수 ",
+      "int_list": [
+        {
+          "int_start_date ": "이자적용시작일 ",
+          "int_end_date ": "이자적용종료일 ",
+          "int_rate ": "적용이율 ",
+          "applied_int_amt": "이자금액"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "youtube#subscription",
+  "etag": "etag",
+  "id": "string",
+  "snippet": {
+    "publishedAt": "datetime",
+    "channelTitle": "string",
+    "title": "string",
+    "description": "string",
+    "resourceId": {
+      "kind": "string",
+      "channelId": "string"
+    },
+    "channelId": "string",
+    "thumbnails": {
+      "key": {
+        "url": "string",
+        "width": "unsigned integer",
+        "height": "unsigned integer"
+      }
+    }
+  },
+  "contentDetails": {
+    "totalItemCount": "unsigned integer",
+    "newItemCount": "unsigned integer",
+    "activityType": "string"
+  },
+  "subscriberSnippet": {
+    "title": "string",
+    "description": "string",
+    "channelId": "string",
+    "thumbnails": {
+      "key": {
+        "url": "string",
+        "width": "unsigned integer",
+        "height": "unsigned integer"
+      }
+    }
+  }
+}

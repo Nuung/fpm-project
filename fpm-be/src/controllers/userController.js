@@ -6,7 +6,7 @@ import {
 } from '../service/userService.js';
 
 /**
- * @descriotion 사용자 회원가입
+ * @description 사용자 회원가입
  * @param {User Model Json} req 
  * @param {리턴 data 참조} res 
  * @returns 

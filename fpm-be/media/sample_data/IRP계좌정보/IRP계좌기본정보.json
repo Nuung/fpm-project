@@ -1,0 +1,9 @@
+{
+  "rsp_code": "세부 응답코드 ",
+  "rsp_msg": "세부 응답메시지 ",
+  "search_timestamp": "조회 타임스탬프 ",
+  "accum_amt": "계좌잔액 ",
+  "eval_amt": "계좌평가금액 ",
+  "employer_amt": "사용자부담금 ",
+  "employee_amt": "가입자부담금 "
+}

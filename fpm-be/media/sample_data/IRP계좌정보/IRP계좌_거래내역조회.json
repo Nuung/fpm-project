@@ -1,0 +1,14 @@
+{
+  "rsp_code": "세부 응답코드 ",
+  "rsp_msg": "세부 응답메시지 ",
+  "next_page": "다음 페이지 기준개체 ",
+  "trans_cnt": "거래목록수 ",
+  "trans_list": [
+    {
+      "trans_dtime": "거래일시 또는 거레일자 ",
+      "trans_no": "거래번호 ",
+      "trans_type": "거래구분 ",
+      "trans_amt": "거래금액"
+    }
+  ]
+}
