@@ -48,7 +48,7 @@ export const makeDumpStock = async (req, res) => {
 // dump data 겸 모든 stock 지우기
 export const deleteAllStock = async (req, res) => {
     try {
-        const result = await deletestockAll();
+        const result = await deleteStockAll();
         return res.status(201).json({msg: `stock delete all ${result}개 삭제 성공`});
     } catch (error) {
         return res.status(400).json({msg: "stock delete all 실패"});   
