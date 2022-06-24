@@ -51,17 +51,9 @@ const getTotalDepost = (userDeposits) => {
         for (let i = 0; i < userDeposit.resList.length; i++) {
             const res = userDeposit.resList[i];
 
-            // 날짜 비교를 위해 res.tranDdate 를 date type으로 casting하고
+            // 날짜 비교를 위해 res.tranDate 를 date type으로 casting하고
             // casting된 type을 Date object와 비교 연산을 해야함
-            const objTarnDate = parseDate(res.tranDdate);
-            
-            // invalid date
-            // 2022-06-30T15:00:00.000Z
-            // false
-
-            console.log(objTarnDate);
-            console.log(new Date("2022", "06", "01"));
-            console.log(objTarnDate < new Date("2022", "06", "01"));
+            const objTarnDate = parseDate(res.tranDate);
 
             // 날짜 체크
             if (objTarnDate < new Date("2022", "06", "01")){
@@ -96,9 +88,19 @@ const getTotalDepost = (userDeposits) => {
 };
 
 
+const getTotalLoan = (userLoan) => {
+    let totalLoanAmt = 0
+    for (let i = 0; i < userLoan.length; i++) {
+        const loan = userLoan[i];
+        totalLoanAmt += loan.loanAmt;
+    }
+    totalLoanAmt;
+};
 
-const typeOfFinancialDetail = (userDeposits) => {
-    const depositCal = getTotalDepost(userDeposits)
+
+const typeOfFinancialDetail = (userDeposits, userLoan) => {
+    const depositCal = getTotalDepost(userDeposits);
+    const loanCal = getTotalLoan(userLoan);
 
     return {
         mostSpend : depositCal.mostSpend,         // 가장 많은 지출 항목 - deposit
@@ -106,11 +108,11 @@ const typeOfFinancialDetail = (userDeposits) => {
         leastSpend : depositCal.leastSpend,        // 가장 적은 지출 항목 - deposit
         leastSpendAmt : depositCal.leastSpendAmt,      // 가장 적은 지출 항목 금액 - deposit
         depositTotalAmt : depositCal.depositTotalAmt,    // 총 일반 예금 금액(현금) - deposit
-        insureAmt : 0,          // 총 보험 금액 - 가라데이터
-        irpAmt: 0,              // 총 IRP 금액 - 가라데이터
+        insureAmt : (Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000) * 10, // 총 보험 금액 - 가라데이터
+        irpAmt: (Math.floor(Math.random() * (10000000 - 1000000 + 1)) + 1000000) * 10, // 총 IRP 금액 - 가라데이터
         stockAmt: 0,            // 총 투자 금액 - stock 
         realAmt: 0,             // 총 실무자산 금액 - 가라데이터
-        loanAmt : 0,            // 총 부채 금액  - loan
+        loanAmt : loanCal,            // 총 부채 금액  - loan
         spendCategory: depositCal.spendCategory
     };
 };
@@ -122,10 +124,11 @@ export const makeFinancialDetailDumpData = async () => {
         for (let i = 0; i < userList.length; i++) {
             const user = userList[i];
             const userDeposits = await Deposit.find({ userId: user.userId }).exec();
+            const userLoan = await Loan.find({ userId: user.userId }).exec();
 
             const {mostSpend, mostSpendAmt, leastSpend, 
                 leastSpendAmt, depositTotalAmt, insureAmt, 
-                irpAmt, stockAmt, realAmt, loanAmt, spendCategory} = typeOfFinancialDetail(userDeposits);
+                irpAmt, stockAmt, realAmt, loanAmt, spendCategory} = typeOfFinancialDetail(userDeposits, userLoan);
 
             
             const newFinancialDetail = new FinancialDetail({
