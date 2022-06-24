@@ -50,6 +50,7 @@ app.set('jwt-secret', process.env.JWT_SECRET); // set the secret key variable fo
 import userRouter from './src/routes/userRouter.js';
 import depositRouter from './src/routes/depositRouter.js';
 import loanRouter from './src/routes/loanRouter.js';
+import stockRouter from './src/routes/stockRouter.js';
 import messageRouter from './src/routes/messageRouter.js';
 import financialDetailRouter from './src/routes/financialDetailRouter.js'
 
@@ -58,6 +59,7 @@ userRouter(app, '/api/user');
 depositRouter(app, '/api/deposit');
 loanRouter(app, '/api/loan');
 messageRouter(app, '/api/message');
+stockRouter(app,'/api/stock');
 financialDetailRouter(app, '/api/financial');
 
 

@@ -67,17 +67,12 @@ export const getTotalAmt = async (req,res) => {
 
 /*
 notion schema impl
-
-1) 내 자산 top3
-전부 total amt 구해서 리스트에 넣고 desc, limit 3
-
-2) 총 자산
-순자산으로 표현, 예금+투자
-
 3) 상위 몇 퍼?
 해시태그 활성화된 거 total amt 검색
 유저아이디, amt 매핑
 정렬 후 계산
 
-4) 
+
+4) stock dump 데이터 만드는 api
+deposit와 똑같이 
 */
