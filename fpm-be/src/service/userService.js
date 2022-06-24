@@ -74,8 +74,8 @@ export const updateUserHashTag = async (user) => {
             const userDeposit = userDeposits[i];
             const temp = new Array(); // 일단 여기에 분류를 다 때려박은 array 만들고
             for (let i = 0; i < userDeposit.resList.length; i++) {
-                const element = userDeposit.resList[i];
-                temp.push(element.printedContent);
+                const res = userDeposit.resList[i];
+                temp.push(res.printedContent);
             }
         }
         // 다 때려박은 array로 부터 Map 형태로
@@ -83,7 +83,7 @@ export const updateUserHashTag = async (user) => {
             accu.set(curr, (accu.get(curr)||0) + 1) ;
             return accu;
         },new Map());
-        
+
         // 그 map을 내림차순으로 다시 정렬
         const sortedResult = new Map([...result].sort((a, b) => b[1] - a[1]));
 

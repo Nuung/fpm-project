@@ -63,9 +63,9 @@ const makeResList = (howMany) => {
 
         // 입출금 랜덤 - 그에 따른 +- 부호 세팅
         const inoutType = randomType();
-        let tranAmt = "";
-        if (inoutType === "출금") tranAmt = `-${(Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100}`
-        else tranAmt = `${(Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100}`
+        // let tranAmt = "";
+        // if (inoutType === "출금") tranAmt = `-${(Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100}`
+        // else tranAmt = `${(Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100}`
             
         // 데이터 insert
         returnResList.push({
@@ -74,7 +74,7 @@ const makeResList = (howMany) => {
             inoutType: inoutType, // "입금" or "출금",
             tranType: "현금",
             printedContent: randomCategory(), // 여기에 분류 넣자 그냥
-            tranAmt: tranAmt,
+            tranAmt: `${(Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100}`,
             after_balanceAmt: "-1000000",  // 안쓰는 값
             branchName: "분당점"
         });
