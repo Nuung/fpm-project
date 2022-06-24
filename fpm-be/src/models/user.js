@@ -17,6 +17,10 @@ const userSchema = mongoose.Schema({ // 몽구스 요청하고 필드 정의
     gender: String, // 성별
     age: String, // 10대 20대 30대, FE에서 그렇게 보내줘야함
     hashtag: Array,
+    follwer: {
+        type: Number,
+        default: 0
+    },
     createdAt: {
         type: Date,
         default: Date.now
