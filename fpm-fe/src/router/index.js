@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Main from '@/components/main/MainPage.vue'
 import SignIn from '@/components/login/SignIn.vue'
+import ChallengeMain from '@/components/challenge/ChallengeMain.vue'
 import store from '../store/index.js'
 
 const routes = [
@@ -19,6 +20,14 @@ const routes = [
     meta: {
       requireAuth: false
     }
+  },
+  {
+    path: '/challenge',
+    name: 'challenge',
+    component: ChallengeMain,
+    meta: {
+      requireAuth: true
+    }
   }
 ]
 
@@ -26,6 +35,7 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
 
 router.beforeEach((to, from, next) => {
   if(to.name !== 'signIn') {

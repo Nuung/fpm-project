@@ -17,6 +17,8 @@ import VueAxios from 'vue-axios'
 
 library.add(fas)
 
+axios.defaults.baseURL = 'http://api.fpm.local'
+
 createApp(App)
 .use(BootstrapVue3)
 .use(router)
