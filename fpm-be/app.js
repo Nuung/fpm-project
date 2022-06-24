@@ -59,7 +59,7 @@ userRouter(app, '/api/user');
 depositRouter(app, '/api/deposit');
 loanRouter(app, '/api/loan');
 messageRouter(app, '/api/message');
-stockRouter(app,'/api/stock');
+stockRouter(app, '/api/stock');
 financialDetailRouter(app, '/api/financial');
 
 

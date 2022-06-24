@@ -2,7 +2,7 @@
 import FinancialDetail from "../financialDetail.js";
 import Deposit from "../deposit.js";
 import Loan from "../loan.js";
-// import Stock from "../stock.js";
+import Stock from "../stock.js";
 
 import User from "../user.js";
 
@@ -89,7 +89,7 @@ const getTotalDepost = (userDeposits) => {
 
 
 const getTotalLoan = (userLoan) => {
-    let totalLoanAmt = 0
+    let totalLoanAmt = 0;
     for (let i = 0; i < userLoan.length; i++) {
         const loan = userLoan[i];
         totalLoanAmt += loan.loanAmt;
@@ -97,10 +97,22 @@ const getTotalLoan = (userLoan) => {
     totalLoanAmt;
 };
 
+const getTotalStock = (userStocks) => {
+    let totalStockAmt = 0;
+    for (let i = 0; i < userStocks.length; i++) {
+        const stock = userStocks[i];
+        for (let i = 0; i < stock.stockList.length; i++) {
+            const s = stock.stockList[i];
+            totalStockAmt += s.stockAmt;
+        }
+    }
+    return totalStockAmt;
+};
 
-const typeOfFinancialDetail = (userDeposits, userLoan) => {
+const typeOfFinancialDetail = (userDeposits, userLoan, userStocks) => {
     const depositCal = getTotalDepost(userDeposits);
     const loanCal = getTotalLoan(userLoan);
+    const stockCal = getTotalStock(userStocks);
 
     return {
         mostSpend : depositCal.mostSpend,         // 가장 많은 지출 항목 - deposit
@@ -110,7 +122,7 @@ const typeOfFinancialDetail = (userDeposits, userLoan) => {
         depositTotalAmt : depositCal.depositTotalAmt,    // 총 일반 예금 금액(현금) - deposit
         insureAmt : (Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000) * 10, // 총 보험 금액 - 가라데이터
         irpAmt: (Math.floor(Math.random() * (10000000 - 1000000 + 1)) + 1000000) * 10, // 총 IRP 금액 - 가라데이터
-        stockAmt: 0,            // 총 투자 금액 - stock 
+        stockAmt: stockCal,            // 총 투자 금액 - stock 
         realAmt: 0,             // 총 실무자산 금액 - 가라데이터
         loanAmt : loanCal,            // 총 부채 금액  - loan
         spendCategory: depositCal.spendCategory
@@ -123,12 +135,14 @@ export const makeFinancialDetailDumpData = async () => {
         const userList = await User.find({});
         for (let i = 0; i < userList.length; i++) {
             const user = userList[i];
+            
             const userDeposits = await Deposit.find({ userId: user.userId }).exec();
             const userLoan = await Loan.find({ userId: user.userId }).exec();
+            const userStocks = await Stock.find({ userId: user.userId }).exec();
 
             const {mostSpend, mostSpendAmt, leastSpend, 
                 leastSpendAmt, depositTotalAmt, insureAmt, 
-                irpAmt, stockAmt, realAmt, loanAmt, spendCategory} = typeOfFinancialDetail(userDeposits, userLoan);
+                irpAmt, stockAmt, realAmt, loanAmt, spendCategory} = typeOfFinancialDetail(userDeposits, userLoan, userStocks);
 
             
             const newFinancialDetail = new FinancialDetail({

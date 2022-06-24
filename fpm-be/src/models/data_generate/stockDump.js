@@ -107,31 +107,35 @@ const randomTranId = () => {
 const makeStockList = (howMany) => {
     const returnStockList = new Array();
     for (let i = 0; i < howMany; i++) {
-
+        const socktCnt = Math.floor(Math.random() * (600 - 1 + 1));
+        const stockPrice = (Math.floor(Math.random() * (10000 - 10 + 1)) + 10) * 10; // 구매 당시 금액
         // 데이터 insert
         returnStockList.push({
             tranDate : randomDate(parseDate("20220401"), parseDate("20220531")),
-            tranTime : new Date().getTime(), //거래 시간
-            inoutType : randomType(), //매수·매도 구분
-            stockCode : randomStockCode(), //주식 코드
-            stockBame : randomStockName(), //주식 이름
-            stockCnt : (Math.floor(Math.random() * (600 - 1 + 1))), //주식 보유 수(예. 삼성전자 `7주`)
-            stockAmt : (Math.floor(Math.random() * (10000 - 100 + 1)) + 100) //주식 보유 액(예. 128만원)
+            tranTime : "1023998", // 거래 시간
+            inoutType : randomType(), // 매수·매도 구분
+            stockCode : randomStockCode(), // 주식 코드
+            stockBame : randomStockName(), // 주식 이름
+            stockCnt : socktCnt,
+            stocPrice : stockPrice,
+            stockAmt : socktCnt * stockPrice // 주식 보유 액(예. 128만원)
         });
     }
     return returnStockList;
 };
 
 const typeOfStock = () => {
+
+    const stockFirmName = randomStockFirmName();
+
     // 5 ~ 100개 사이로 resList 랜덤 생성
     const newStockList = makeStockList(Math.floor(Math.random() * (100 - 5 + 1)) + 5);
     return {
         stockTranId: randomTranId(),
-        stockTranDate: randomDate(),
+        stockTranDate: randomDate(parseDate("20220401"), parseDate("20220531")),
         stockFirmName: randomStockFirmName(),
         stockFirmCodeTran: mappingFirm[stockFirmName],
-        cratedAt:randomDate(),
-        earningRate:(Math.floor(Math.random() * (250-200)) -200),
+        earningRate: Math.floor(Math.random() * (250 - (-100) + 1)) + (-100),
         stockList: newStockList
     };
 };
@@ -143,7 +147,7 @@ export const makeStockDumpData = async () => {
         for (let i = 0; i < userList.length; i++) {
             const user = userList[i];
             const {stockTranId, stockTranDate, stockFirmName, 
-                stockFirmCodeTran, earningRate, stockList} = typeOfStock();            
+                stockFirmCodeTran, earningRate, stockList} = typeOfStock();
             const newStock = new Stock({
                 userId: user.userId,
                 stockTranId: stockTranId,
