@@ -32,7 +32,7 @@ export const getTotalDepoAmt = async (userId) => {
         const depositList = await Deposit.find({"userId":userId});
         let amount = 0;
         depositList.forEach(element => {
-            amount += element.balance_amt;
+            amount += element.balanceAmt;
         });
         return amount;
     } catch (err) {

@@ -36,13 +36,13 @@ const randomDate = (start, end) => {
 
 const typeOfLoans = () => {
     return {
-        tran_date : randomDate(parseDate("20220501"), parseDate("20220631")), // 거래 일자
-        tran_time : String(Date.now()), // 거래 시간
-        company_code : "FFF00", // 대출 상품 회사 코드
-        company_name : "국민은행", // 대출 상품 회사 명
-        loan_code : "FC234F", // 대출 상품 코드
-        loan_name : "직장인스마트론", // 대출 상품 이름
-        loan_amt : (Math.floor(Math.random() * (10000000 - 100000 + 1)) + 1000000) * 100, // 대출 액(예. 128만원)
+        tranDate : randomDate(parseDate("20220501"), parseDate("20220631")), // 거래 일자
+        tranTime : String(Date.now()), // 거래 시간
+        companyCode : "FFF00", // 대출 상품 회사 코드
+        companyName : "국민은행", // 대출 상품 회사 명
+        loanCode : "FC234F", // 대출 상품 코드
+        loanName : "직장인스마트론", // 대출 상품 이름
+        loanAmt : (Math.floor(Math.random() * (10000000 - 100000 + 1)) + 1000000) * 100, // 대출 액(예. 128만원)
     };
 };
 
@@ -52,17 +52,17 @@ export const makeLoanDumpData = async () => {
         const userList = await User.find({});
         for (let i = 0; i < userList.length; i++) {
             const user = userList[i];
-            const {tran_date, tran_time, company_code, 
-                company_name, loan_code, loan_name, loan_amt} = typeOfLoans();            
+            const {tranDate, tranTime, companyCode, 
+                companyName, loanCode, loanName, loanAmt} = typeOfLoans();            
             const newLoan = new Loan({
                 userId: user.userId,
-                tran_date: tran_date,
-                tran_time: tran_time,
-                company_code: company_code,
-                company_name: company_name,
-                loan_code: loan_code,
-                loan_name: loan_name,
-                loan_amt: loan_amt
+                tranDate: tranDate,
+                tranTime: tranTime,
+                companyCode: companyCode,
+                companyName: companyName,
+                loanCode: loanCode,
+                loanName: loanName,
+                loanAmt: loanAmt
             });
             await newLoan.save();            
         }

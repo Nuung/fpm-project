@@ -6,13 +6,13 @@ const loanSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    tran_date : String, // 거래 일자
-    tran_time : String, // 거래 시간
-    company_code : String, // 대출 상품 회사 코드
-    company_name : String, // 대출 상품 회사 명
-    loan_code : String, // 대출 상품 코드
-    loan_name : String, // 대출 상품 이름
-    loan_amt : Number, // 대출 액(예. 128만원)
+    tranDate : String, // 거래 일자
+    tranTime : String, // 거래 시간
+    companyCode : String, // 대출 상품 회사 코드
+    companyName : String, // 대출 상품 회사 명
+    loanCode : String, // 대출 상품 코드
+    loanName : String, // 대출 상품 이름
+    loanAmt : Number, // 대출 액(예. 128만원)
     createdAt: {
         type: Date,
         default: Date.now

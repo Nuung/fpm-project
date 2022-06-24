@@ -54,7 +54,7 @@ const randomBankName = () => {
 }
 
 /**
- * @param {*} howMany ex) res_list를 몇개나 만들건지, 이것 또한 랜덤값으로
+ * @param {*} howMany ex) resList를 몇개나 만들건지, 이것 또한 랜덤값으로
  * @returns 
  */
 const makeResList = (howMany) => {
@@ -69,13 +69,13 @@ const makeResList = (howMany) => {
             
         // 데이터 insert
         returnResList.push({
-            tran_date: randomDate(parseDate("20220501"), parseDate("20220631")),
-            tran_time: "11300",
-            inout_type: inoutType, // "입금" or "출금",
-            tran_type: "현금",
-            printed_content: randomCategory(), // 여기에 분류 넣자 그냥
-            tran_amt: tranAmt,
-            after_balance_amt: "-1000000",  // 안쓰는 값
+            tranDate: randomDate(parseDate("20220501"), parseDate("20220631")),
+            tranTime: "11300",
+            inoutType: inoutType, // "입금" or "출금",
+            tranType: "현금",
+            printedContent: randomCategory(), // 여기에 분류 넣자 그냥
+            tranAmt: tranAmt,
+            after_balanceAmt: "-1000000",  // 안쓰는 값
             branchName: "분당점"
         });
     }
@@ -83,25 +83,25 @@ const makeResList = (howMany) => {
 };
 
 const typeOfTransaction = () => {
-    // 5 ~ 100개 사이로 res_list 랜덤 생성
+    // 5 ~ 100개 사이로 resList 랜덤 생성
     const newResList = makeResList(Math.floor(Math.random() * (100 - 5 + 1)) + 5);
     return {
-        api_tran_id: "2ffd133a-d17a-431d-a6a5",
-        api_tran_dtm: "20190910101921567",
-        rsp_code: "A0000",
-        rsp_message: "",
-        bank_tran_id: "F123456789U4BC34239Z",
-        bank_tran_date: "20190910",
-        bank_code_tran: "097",
-        bank_rsp_code: "000",
-        bank_rsp_message: "",
-        bank_name: randomBankName(),
-        fintech_use_num: "123456789012345678901234",
-        balance_amt: (Math.floor(Math.random() * (100000000 - 1000000 + 1)) + 1000000) * 100,
-        page_record_cnt: "25",
-        next_page_yn: "Y",
-        befor_inquiry_trace_info: "1T201806171",
-        res_list: newResList
+        apiTranId: "2ffd133a-d17a-431d-a6a5",
+        apiTranDtm: "20190910101921567",
+        rspCode: "A0000",
+        rspMessage: "",
+        bankTranId: "F123456789U4BC34239Z",
+        bankTranDate: "20190910",
+        bankCodeTran: "097",
+        bankRspCode: "000",
+        bankRspMessage: "",
+        bankName: randomBankName(),
+        fintech_useNum: "123456789012345678901234",
+        balanceAmt: (Math.floor(Math.random() * (100000000 - 1000000 + 1)) + 1000000) * 100,
+        pageRecordCnt: "25",
+        nextPageYn: "Y",
+        beforInquiryTraceInfo: "1T201806171",
+        resList: newResList
     };
 };
 
@@ -111,16 +111,16 @@ export const makeDepositDumpData = async () => {
         const userList = await User.find({});
         for (let i = 0; i < userList.length; i++) {
             const user = userList[i];
-            const {bank_tran_id, bank_tran_date, bank_code_tran, 
-                bank_name, balance_amt, res_list} = typeOfTransaction();            
+            const {bankTranId, bankTranDate, bankCodeTran, 
+                bankName, balanceAmt, resList} = typeOfTransaction();            
             const newDeposit = new Deposit({
                 userId: user.userId,
-                bank_tran_id: bank_tran_id,
-                bank_tran_date: bank_tran_date,
-                bank_code_tran: bank_code_tran,
-                bank_name: bank_name,
-                balance_amt: balance_amt,
-                res_list: res_list
+                bankTranId: bankTranId,
+                bankTranDate: bankTranDate,
+                bankCodeTran: bankCodeTran,
+                bankName: bankName,
+                balanceAmt: balanceAmt,
+                resList: resList
             });
             await newDeposit.save();            
         }

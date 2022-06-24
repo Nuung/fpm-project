@@ -6,12 +6,12 @@ const depositSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    bank_tran_id: String,
-    bank_tran_date: Date,
-    bank_code_tran: String,
-    bank_name: String,
-    balance_amt: Number,
-    res_list: Array,
+    bankTranId: String,
+    bankTranDate: Date,
+    bankCodeTran: String,
+    bankName: String,
+    balanceAmt: Number,
+    resList: Array,
     createdAt: {
         type: Date,
         default: Date.now
