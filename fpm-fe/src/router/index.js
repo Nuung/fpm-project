@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Main from '@/components/main/MainPage.vue'
 import SignIn from '@/components/login/SignIn.vue'
 import ChallengeMain from '@/components/challenge/ChallengeMain.vue'
+import UserProfile from '@/components/profile/UserProfile.vue'
 import store from '../store/index.js'
 
 const routes = [
@@ -9,6 +10,14 @@ const routes = [
     path: '/',
     name: 'main',
     component: Main,
+    meta: {
+      requireAuth: true
+    }
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: UserProfile,
     meta: {
       requireAuth: true
     }

@@ -28,14 +28,18 @@ export default {
     },
     methods: {
         userLogin: function(){
-            const params = {
+            const data = {
                 userId: this.form.userId,
                 password: this.form.password
             }
-            this.axios.post('/api/user/login', params)
+            this.axios.post('/api/user/login', data)
                 .then((result) => {
                     if(result.status == 201){
-                        this.$store.commit("login", result.data.token);
+                        const payload = {
+                            token : result.data.token,
+                            useId : this.form.userId
+                        }
+                        this.$store.commit("login", payload);
                         this.$router.push('/');
                     }
                 })

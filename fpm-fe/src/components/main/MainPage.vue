@@ -9,11 +9,13 @@
     </div>
     <div class="hashtags">
       <button>전체</button>
+      {{ userId }}
       <button v-for="tag in hashtags" :key="tag">{{ tag }}</button>
       <button>더보기</button>
     </div>
     <my-info v-if=this.isTotal></my-info>
     <group-info v-if=!this.isTotal></group-info>
+    <button @click="hashtag">button</button>
     <bottom-nav></bottom-nav>
   </div>
 </template>
@@ -35,6 +37,32 @@ export default {
       totalAsset: 0,
       hashtags: [],
       isTotal: true,
+    }
+  },
+  methods: {
+    hashtag(){
+      const config = {
+      headers: {
+        authorization: this.$store.state.authToken
+      }
+    }
+
+    this.axios.get('/api/user/'+ this.userId +'/hashtag', config)
+      .then((result) => {
+        this.hashtags = result.user_hashtag;
+        alert(this.hashtags);
+      })
+      .catch(
+        alert("오류발생")
+      )
+    }
+  },
+  computed: {
+    authToken(){
+      return this.$store.state.authToken
+    },
+    userId(){
+      return this.$store.state.userId
     }
   }
 }
