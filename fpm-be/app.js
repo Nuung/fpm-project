@@ -51,12 +51,14 @@ import userRouter from './src/routes/userRouter.js';
 import depositRouter from './src/routes/depositRouter.js';
 import loanRouter from './src/routes/loanRouter.js';
 import messageRouter from './src/routes/messageRouter.js';
+import financialDetailRouter from './src/routes/financialDetailRouter.js'
 
 // router mapping
 userRouter(app, '/api/user');
 depositRouter(app, '/api/deposit');
 loanRouter(app, '/api/loan');
 messageRouter(app, '/api/message');
+financialDetailRouter(app, 'api/financial');
 
 
 // ==================== Other Config Setting ==================== //
