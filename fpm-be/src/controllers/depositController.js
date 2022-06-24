@@ -3,7 +3,6 @@
 import {
     deleteDepositAll,getTotalDepoAmt,
     findDepositAllByUserId,
-    deleteDepositAll,
 } from '../service/depositService.js';
 import { findUserById } from '../service/userService.js';
 
