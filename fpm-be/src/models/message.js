@@ -10,6 +10,7 @@ const messageSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    fromUserNickName: String,
     msg: String,
     isRead: {
         type: Boolean,

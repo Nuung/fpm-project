@@ -74,7 +74,7 @@ const makeResList = (howMany) => {
             inoutType: inoutType, // "입금" or "출금",
             tranType: "현금",
             printedContent: randomCategory(), // 여기에 분류 넣자 그냥
-            tranAmt: (Math.floor(Math.random() * (10000 - 100 + 1)) + 100),
+            tranAmt: (Math.floor(Math.random() * (100000 - 100 + 1)) + 100),
             after_balanceAmt: "-1000000",  // 안쓰는 값
             branchName: "분당점"
         });
@@ -97,7 +97,7 @@ const typeOfTransaction = () => {
         bankRspMessage: "",
         bankName: randomBankName(),
         fintech_useNum: "123456789012345678901234",
-        balanceAmt: (Math.floor(Math.random() * (100000000 - 1000000 + 1)) + 1000000) * 100,
+        balanceAmt: (Math.floor(Math.random() * (100000000 - 1000000 + 1)) + 1000000) * 10,
         pageRecordCnt: "25",
         nextPageYn: "Y",
         beforInquiryTraceInfo: "1T201806171",

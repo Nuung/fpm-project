@@ -2,12 +2,13 @@
 import Message from '../models/message.js';
 
 // message create 
-export const createMessage = async (body, userId) => {
-    const { fromUserId, msg } = body;
+export const createMessage = async (body, fromUser) => {
+    const { toUserId, msg } = body;
     try {
         const newMessage = new Message({
-            userId: userId,
-            fromUserId: fromUserId,
+            userId: toUserId,
+            fromUserId: fromUser.userId,
+            fromUserNickName: fromUser.fromUserNickName,
             msg: msg,
         });
         const saveMessage = await newMessage.save();
@@ -60,6 +61,7 @@ export const getAllUnReadMessage = async (userId) => {
                 { "$group": { 
                     "_id": "$fromUserId",
                     "userId": { "$last": "$userId" },
+                    "nickName": { "$last": "$nickName"},
                     "msg": { "$last": "$msg" },
                     "createdAt": { "$last": "$createdAt" },
                     "counts": {
@@ -69,6 +71,18 @@ export const getAllUnReadMessage = async (userId) => {
             ],
         ).exec();
         return userMessage;
+    } catch (err) {
+        console.error(err);
+        return err;
+    }
+};
+
+
+// Message delete all
+export const deleteMessageAll = async () => {
+    try {
+        const {acknowledged, deletedCount} = await Message.deleteMany({});
+        return deletedCount;
     } catch (err) {
         console.error(err);
         return err;

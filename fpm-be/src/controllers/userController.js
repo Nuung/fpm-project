@@ -120,23 +120,17 @@ export const genRefreshToken = (req, res) => {
 // Auth 값 기반으로 자신의 User 정보 얻어오기
 export const getUser = async (req, res) => {
     const userId = req.params.id;
-    if (req.user.id === userId) {
-        const user = await findUserById(userId);
+    const user = await findUserById(userId);
 
-        // return user model data 조절하기
-        // console.dir(user._doc);
-        delete user._doc._id;
-        delete user._doc.password;
-        const data = {
-            user,
-            "jwt": req.user,
-        }
-        return res.status(200).json({ data });
-    }
-    else {
-        const error = '올바르지 않은 접근 입니다.';
-        return res.status(401).json({ error });
-    }
+    // return user model data 조절하기
+    // console.dir(user._doc);
+    delete user._doc._id;
+    delete user._doc.password;
+    // const data = {
+    //     user,
+    //     "jwt": req.user,
+    // }
+    return res.status(200).json({ user });
 };
 
 // ===================================================================================== //

@@ -32,6 +32,26 @@ export const getFinancialDetail = async (req, res) => {
 };
 
 
+// auth 만 태우고, id 값으로 원하는 상대 FinancialDetail 얻어오기
+export const getFinancialDetailById = async (req, res) => {
+    const user = await findUserById(req.params.userId);
+    if (!user) {
+        const error = '올바르지 않은 접근 입니다.';
+        return res.status(401).json({ error });            
+    }
+
+    const userFinancialDetail = await findFinancialDetailByUserId(req.params.userId);
+    
+    // return user model data 조절하기
+    delete user._doc._id;
+    delete user._doc.password;
+    const data = {
+        user,
+        userFinancialDetail,
+    }
+    return res.status(200).json({ data });
+}
+
 // ===================================================================================== //
 
 

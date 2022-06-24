@@ -1,7 +1,7 @@
 'use strict';
 
 import {
-    createMessage, getAllMessageAndRead, getAllUnReadMessage
+    createMessage, getAllMessageAndRead, getAllUnReadMessage, deleteMessageAll
 } from '../service/messageService.js';
 import { findUserById } from '../service/userService.js';
 
@@ -14,18 +14,18 @@ import { findUserById } from '../service/userService.js';
  export const sendMessage = async (req, res) => {
 
     try {
-        const user = await findUserById(req.user.id);
-        const fromUser = await findUserById(req.body.fromUserId);
-        if (!user || !fromUser) {
+        const fromUser = await findUserById(req.user.id);
+        const toUser = await findUserById(req.body.toUserId);
+        if (!fromUser || !toUser) {
             const error = '올바르지 않은 접근 입니다.';
             return res.status(401).json({ error });            
         }
-        else if (req.user.id === req.body.fromUserId) {
+        else if (req.user.id === req.body.toUserId) {
             const error = '자기 자신에게 메시지를 보낼 수 없습니다.';
             return res.status(400).json({ error });
         }
         else {
-            await createMessage(req.body, req.user.id);
+            await createMessage(req.body, fromUser);
             return res.status(201).json({ "msg": "정상적으로 메시지를 보냈습니다." });
         }
     } catch (err) {
@@ -101,12 +101,12 @@ export const listOfMessage = async (req, res) => {
 //     }
 // };
 
-// // dump data 겸 모든 Deposit 지우기
-// export const deletAllDeposit = async (req, res) => {
-//     try {
-//         const result = await deleteDepositAll();
-//         return res.status(201).json({msg: `Deposit delete all ${result}개 삭제 성공`});
-//     } catch (error) {
-//         return res.status(400).json({msg: "Deposit delete all 실패"});   
-//     }
-// };
+// dump data 겸 모든 Message 지우기
+export const deletAllMessage = async (req, res) => {
+    try {
+        const result = await deleteMessageAll();
+        return res.status(201).json({msg: `Message delete all ${result}개 삭제 성공`});
+    } catch (error) {
+        return res.status(400).json({msg: "Message delete all 실패"});   
+    }
+};
