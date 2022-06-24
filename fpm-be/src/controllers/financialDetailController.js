@@ -18,10 +18,10 @@ export const getFinancialDetail = async (req, res) => {
             return res.status(401).json({ error });            
         }
         
-        const userDeposits = await findFinancialDetailByUserId(user.userId);
+        const userFinancialDetail = await findFinancialDetailByUserId(user.userId);
         const data = {
             user,
-            userDeposits,
+            userFinancialDetail,
         }
         return res.status(200).json({ data });
     }

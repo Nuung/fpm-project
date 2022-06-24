@@ -58,7 +58,7 @@ userRouter(app, '/api/user');
 depositRouter(app, '/api/deposit');
 loanRouter(app, '/api/loan');
 messageRouter(app, '/api/message');
-financialDetailRouter(app, 'api/financial');
+financialDetailRouter(app, '/api/financial');
 
 
 // ==================== Other Config Setting ==================== //

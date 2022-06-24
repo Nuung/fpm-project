@@ -69,12 +69,12 @@ const makeResList = (howMany) => {
             
         // 데이터 insert
         returnResList.push({
-            tranDate: randomDate(parseDate("20220501"), parseDate("20220631")),
+            tranDate: randomDate(parseDate("20220401"), parseDate("20220531")),
             tranTime: "11300",
             inoutType: inoutType, // "입금" or "출금",
             tranType: "현금",
             printedContent: randomCategory(), // 여기에 분류 넣자 그냥
-            tranAmt: `${(Math.floor(Math.random() * (1000 - 10 + 1)) + 10) * 100}`,
+            tranAmt: (Math.floor(Math.random() * (10000 - 100 + 1)) + 100),
             after_balanceAmt: "-1000000",  // 안쓰는 값
             branchName: "분당점"
         });

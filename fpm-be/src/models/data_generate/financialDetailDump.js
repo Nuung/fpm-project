@@ -6,6 +6,16 @@ import Loan from "../loan.js";
 
 import User from "../user.js";
 
+
+const parseDate = (str) => {
+    if(!/^(\d){8}$/.test(str)) return "invalid date";
+    const y = str.substr(0,4),
+          m = str.substr(4,2),
+          d = str.substr(6,2);
+    return new Date(y,m,d);
+}
+
+
 const getFirstKeyInMap = (map) => [...map][0][0]; 
 const getFirstValueInMap = (map) => [...map][0][1];
 const getLastKeyInMap = (map) => [...map][map.size-1][0];
@@ -14,12 +24,12 @@ const getLastValueInMap = (map) => [...map][map.size-1][1];
 // 가장 많은 지출 항목과 해당 금액
 // 가장 적은 지출 항목과 해당 금액
 // 소비패턴 가져오기 - 항목은 user.hashtag 과 같은 형식으로 이뤄짐
-const getTotalDepost = (user) => {
+const getTotalDepost = (userDeposits) => {
     const returnObject = {
         mostSpend: "",
         mostSpendAmt: 0,
         leastSpend: "",
-        leastSpenAmt: 0,
+        leastSpendAmt: 0,
         depositTotalAmt: 0,
         spendCategory: {
             "before": new Array(),   // 저번달
@@ -27,7 +37,6 @@ const getTotalDepost = (user) => {
         }
     }
 
-    const userDeposits = await Deposit.find({ userId: user.userId }).exec();
     const tempBeforeMap = new Map();
     const tempAfterMap = new Map();
 
@@ -42,8 +51,16 @@ const getTotalDepost = (user) => {
         for (let i = 0; i < userDeposit.resList.length; i++) {
             const res = userDeposit.resList[i];
 
+            // 날짜 비교를 위해 res.tranDdate 를 date type으로 casting하고
+            // casting된 type을 Date object와 비교 연산을 해야함
+            const objTarnDate = parseDate(res.tranDdate);
+            
+            console.log(objTarnDate);
+            console.log(new Date("2022", "06", "01"));
+            console.log(objTarnDate < new Date("2022", "06", "01"));
+
             // 날짜 체크
-            if (res.tranDdate < "20220601"){
+            if (objTarnDate < new Date("2022", "06", "01")){
                 if (tempBeforeMap.has(res.printedContent)) {
                     tempBeforeMap.set(res.printedContent, tempBeforeMap.get(res.printedContent) + res.tranAmt);
                 }
@@ -76,9 +93,8 @@ const getTotalDepost = (user) => {
 
 
 
-const typeOfFinancialDetail = (user) => {
-
-    const depositCal = getTotalDepost(user)
+const typeOfFinancialDetail = (userDeposits) => {
+    const depositCal = getTotalDepost(userDeposits)
 
     return {
         mostSpend : depositCal.mostSpend,         // 가장 많은 지출 항목 - deposit
@@ -101,10 +117,14 @@ export const makeFinancialDetailDumpData = async () => {
         const userList = await User.find({});
         for (let i = 0; i < userList.length; i++) {
             const user = userList[i];
+            const userDeposits = await Deposit.find({ userId: user.userId }).exec();
+
             const {mostSpend, mostSpendAmt, leastSpend, 
                 leastSpendAmt, depositTotalAmt, insureAmt, 
-                irpAmt, stockAmt, realAmt, loanAmt, spendCategory} = typeOfFinancialDetail();            
-            const newLoan = new Loan({
+                irpAmt, stockAmt, realAmt, loanAmt, spendCategory} = typeOfFinancialDetail(userDeposits);
+
+            
+            const newFinancialDetail = new FinancialDetail({
                 userId: user.userId,
                 mostSpend: mostSpend,
                 mostSpendAmt: mostSpendAmt,
@@ -118,7 +138,7 @@ export const makeFinancialDetailDumpData = async () => {
                 loanAmt: loanAmt,
                 spendCategory: spendCategory
             });
-            await newLoan.save();            
+            await newFinancialDetail.save();            
         }
     } catch (error) {
         console.error(error);
