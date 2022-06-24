@@ -110,13 +110,13 @@ const makeStockList = (howMany) => {
 
         // 데이터 insert
         returnStockList.push({
-            tran_date : randomDate(parseDate("20220401"), parseDate("20220531")),
-            tran_time : "2128", //거래 시간
-            inout_type : randomType(), //매수·매도 구분
-            stock_code : randomStockCode(), //주식 코드
-            stock_name : randomStockName(), //주식 이름
-            stock_cnt : (Math.floor(Math.random() * (600 - 1 + 1))), //주식 보유 수(예. 삼성전자 `7주`)
-            stock_amt : (Math.floor(Math.random() * (10000 - 100 + 1)) + 100) //주식 보유 액(예. 128만원)
+            tranDate : randomDate(parseDate("20220401"), parseDate("20220531")),
+            tranTime : new Date().getTime(), //거래 시간
+            inoutType : randomType(), //매수·매도 구분
+            stockCode : randomStockCode(), //주식 코드
+            stockBame : randomStockName(), //주식 이름
+            stockCnt : (Math.floor(Math.random() * (600 - 1 + 1))), //주식 보유 수(예. 삼성전자 `7주`)
+            stockAmt : (Math.floor(Math.random() * (10000 - 100 + 1)) + 100) //주식 보유 액(예. 128만원)
         });
     }
     return returnStockList;
