@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 export const authCheck = (req, res, next) => {
 
-    const token = req.headers['authorization'] || req.body.token;
+    const token = req.headers['authorization'] || req.body.token || req.cookies['jwt_token'];
 
     // token does not exist
     if (!token || token === null || token === "") {

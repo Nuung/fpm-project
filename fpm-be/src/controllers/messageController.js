@@ -1,7 +1,7 @@
 'use strict';
 
 import {
-    createMessage,
+    createMessage, getAllMessageAndRead, getAllUnReadMessage
 } from '../service/messageService.js';
 import { findUserById } from '../service/userService.js';
 
@@ -15,9 +15,14 @@ import { findUserById } from '../service/userService.js';
 
     try {
         const user = await findUserById(req.user.id);
-        if (!user) {
+        const fromUser = await findUserById(req.body.fromUserId);
+        if (!user || !fromUser) {
             const error = '올바르지 않은 접근 입니다.';
             return res.status(401).json({ error });            
+        }
+        else if (req.user.id === req.body.fromUserId) {
+            const error = '자기 자신에게 메시지를 보낼 수 없습니다.';
+            return res.status(400).json({ error });
         }
         else {
             await createMessage(req.body, req.user.id);
@@ -29,25 +34,59 @@ import { findUserById } from '../service/userService.js';
     }
 };
 
-
+/**
+ * 나에게 보낸 메시지를 읽음 -> 채팅방 내부에 계속해서 일어날 액션임
+ * @param {*} req uri에 fromUserId, 즉 jwt토큰의 유저가 어떤 사람이 보낸 msg를 읽을지
+ * @param {*} res 
+ * @returns 
+ */
 export const readMessage = async (req, res) => {
+    try {
+        const user = await findUserById(req.user.id);
+        const fromUser = await findUserById(req.params.fromUserId);
+        if (!user || !fromUser) {
+            const error = '올바르지 않은 접근 입니다.';
+            return res.status(401).json({ error });            
+        }
+        else {
+            const allMessage = await getAllMessageAndRead(req.user.id, req.params.fromUserId);
+            delete user._doc._id;
+            delete user._doc.password;
+            delete fromUser._doc._id;
+            delete fromUser._doc.password;
+            delete fromUser._doc.gender;
+            delete fromUser._doc.age;
+            delete fromUser._doc.createdAt;
+            return res.status(200).json({ user, fromUser, allMessage });
+        }
+    } catch (err) {
+        console.log(err);
+        throw new Error(err);
+    }
+};
 
+
+/**
+ * 나에게 메시지를 보낸 채팅방 리스트를 보여줌
+ * @param {*} req 
+ * @param {*} res 
+ */
+export const listOfMessage = async (req, res) => {
     try {
         const user = await findUserById(req.user.id);
         if (!user) {
             const error = '올바르지 않은 접근 입니다.';
             return res.status(401).json({ error });            
         }
-        else {
 
-
-        }
-    } catch (error) {
-        console.log(err);
-        throw new Error(err);        
+        const allMessage = await getAllUnReadMessage(req.user.id);
+        delete user._doc._id;
+        delete user._doc.password;
+        return res.status(200).json({ user, allMessage });  
+    } catch (err) {
+        
     }
 };
-
 
 // ===================================================================================== //
 
