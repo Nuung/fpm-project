@@ -55,6 +55,10 @@ const getTotalDepost = (userDeposits) => {
             // casting된 type을 Date object와 비교 연산을 해야함
             const objTarnDate = parseDate(res.tranDdate);
             
+            // invalid date
+            // 2022-06-30T15:00:00.000Z
+            // false
+
             console.log(objTarnDate);
             console.log(new Date("2022", "06", "01"));
             console.log(objTarnDate < new Date("2022", "06", "01"));

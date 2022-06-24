@@ -70,9 +70,9 @@ export const updateUserHashTag = async (user) => {
         const userDeposits = await Deposit.find({ userId: user.userId }).exec();
 
         // step2. 해당 유저의 deposit의 resList를 분석한다. (분류 한다.)
-        for (let i = 0; i < array.length; i++) {
+        const temp = new Array(); // 일단 여기에 분류를 다 때려박은 array 만들고
+        for (let i = 0; i < userDeposits.length; i++) {
             const userDeposit = userDeposits[i];
-            const temp = new Array(); // 일단 여기에 분류를 다 때려박은 array 만들고
             for (let i = 0; i < userDeposit.resList.length; i++) {
                 const res = userDeposit.resList[i];
                 temp.push(res.printedContent);
@@ -97,7 +97,7 @@ export const updateUserHashTag = async (user) => {
         const updatedUser = await User.findOne({ userId: user.userId });
         return updatedUser;
 
-    } catch (error) {
+    } catch (err) {
         console.error(err);
         return err;
     }
