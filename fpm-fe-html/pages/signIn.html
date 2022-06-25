@@ -36,12 +36,14 @@
           </div>
           <img class="right-side" src="../public/images/right-side-6@2x.svg" />
         </div>
-        <div class="group-1811">
-            <div class="text-46 valign-text-middle">아이디</div>
-            <div class="frame-39"><input type="text" id="id" placeholder="ID"></div>
-            <div class="text-47 valign-text-middle">비밀번호</div>
-            <div class="frame-39"><input type="password" id="pass" placeholder="Password"></div>
-        </div>
+        <form name="loginForm" method="post">
+          <div class="group-1811">
+              <div class="text-46 valign-text-middle">아이디</div>
+              <div class="frame-39"><input type="text" id="id" placeholder="ID"></div>
+              <div class="text-47 valign-text-middle">비밀번호</div>
+              <div class="frame-39"><input type="password" id="pw" placeholder="Password"></div>
+          </div>
+        </form>  
         <div class="frame-92">
           <div class="text-48 fontbody0semibold" id ="btn" onclick="login()">로그인</div>
         </div>
