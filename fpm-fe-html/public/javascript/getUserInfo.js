@@ -3,6 +3,7 @@
 //get financial detail 후 쿠키에 저장
 export const getFinancialDetail = () => {
     const authorization = document.cookie.jwt_token;
+    const userId = document.cookie.userId;
     console.log(authorization);
     console.log(document.cookie);
 
@@ -18,22 +19,19 @@ export const getFinancialDetail = () => {
             return response.json();
         })
         .then(data => {
-            const {nickName,hashTag,follwer,depositTotalAmt,insureAmt,irpAmt,stockAmt,realAmt} = data;
+            const {nickName,hashtag,follwer} = data.user;
+            const {depositTotalAmt,insureAmt,irpAmt,stockAmt,realAmt} = data.userFinancialDetail;
 
+            //cookie setting
+            document.cookie = `nickName=${nickName}`;
+            document.cookie = `hashTag=${hashtag}`;
+            document.cookie = `follwer=${follwer}`;
+            document.cookie = `depositAmt=${depositTotalAmt}`;
+            document.cookie = `insureAmt=${insureAmt}`;
+            document.cookie = `irpAmt=${irpAmt}`;
+            document.cookie = `stockAmt=${stockAmt}`;
+            document.cookie = `realAmt=${realAmt}`;
         }).catch(err => {
             console.warn(err);
         });
 };
-
-getUser();
-getFinancialDetail();
-
-//cookie setting
-document.cookie = "nickName="+nickName;
-document.cookie = "hashTag="+hashTag;
-document.cookie = "follwer="+follwer;
-document.cookie = "depositAmt="+depositAmt;
-document.cookie = "insureAmt="+insureAmt;
-document.cookie = "irpAmt="+irpAmt;
-document.cookie = "stockAmt="+stockAmt;
-document.cookie = "realAmt="+realAmt;
