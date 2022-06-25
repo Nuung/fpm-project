@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "vue-ssr-carousel": "^1.4.0",
+    "vue3-cookies": "^1.0.6"
+  }
+}
