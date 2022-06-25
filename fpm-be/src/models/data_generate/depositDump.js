@@ -97,7 +97,7 @@ const typeOfTransaction = () => {
         bankRspMessage: "",
         bankName: randomBankName(),
         fintech_useNum: "123456789012345678901234",
-        balanceAmt: (Math.floor(Math.random() * (100000000 - 1000000 + 1)) + 1000000) * 10,
+        balanceAmt: (Math.floor(Math.random() * (100000000 - 100000 + 1)) + 100000) * 10,
         pageRecordCnt: "25",
         nextPageYn: "Y",
         beforInquiryTraceInfo: "1T201806171",

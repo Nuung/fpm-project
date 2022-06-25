@@ -16,7 +16,19 @@ services:
       - NGINX_PORT=80
     networks:
       - fpm-project-network
-
+    depends_on:
+      - fpm-data-api
+  fpm-data-api:
+    image: fpm-data-api
+    ports:
+      - "8000:8000"
+    environment:
+      - FLASK_ENV=development
+      - MONGO_HOST=db-mongodb
+    networks:
+      - fpm-project-network
+    depends_on:
+      - db-mongodb
   db-mongodb:
     image: mongo
     ports:

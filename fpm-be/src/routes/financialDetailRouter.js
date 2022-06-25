@@ -2,8 +2,8 @@
 
 // ==================== middlewares ==================== //
 
-import { getFinancialDetail, getFinancialDetailById, 
-    makeDumpFinancialDetail, deletAllFinancialDetail } from '../controllers/financialDetailController.js';
+import { getFinancialDetail, getFinancialDetailById, getUserFinancialRank, 
+    getUserFinancialRankById,makeDumpFinancialDetail, deletAllFinancialDetail } from '../controllers/financialDetailController.js';
 import { authCheck } from '../middlewares/auth.js';
 
 // ==================== Routing ==================== //
@@ -17,7 +17,11 @@ const financialDetailRouter = (app, endpoint) => {
     // get all financialDetail about user
     app.use(`${endpoint}`, authCheck);
     app.route(`${endpoint}`).get(getFinancialDetail);
-    app.route(`${endpoint}/:userId`).get(getFinancialDetailById)
+    app.route(`${endpoint}/:userId`).get(getFinancialDetailById);
+    
+    // get rank
+    app.route(`${endpoint}/user/rank`).get(getUserFinancialRank);
+    app.route(`${endpoint}/user/rank/:userId`).get(getUserFinancialRankById);
 };
 
 export default financialDetailRouter;
