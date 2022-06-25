@@ -29,34 +29,37 @@
           </div>
           <a href="-3.html"><img class="arrow-back-ios" src="../public/images/arrow-back-ios@2x.svg" /> </a>
           <div class="text-223 fonth1">떡상간다</div>
-          <img class="rectangle-3383" src="../public/images/rectangle-3383@2x.svg" />
-          <div class="text-224 fonth3">떡상간다</div>
-          <div class="text-225 fontbody3">오전<br />11:00</div>
-          <div class="text-226 fontbody3">오전<br />11:00</div>
-          <div class="text-227 fontbody3">오전<br />11:02</div>
-          <div class="text-228 fontbody3">오전<br />11:01</div>
-          <div class="frame-425"><div class="text-2 pretendard-regular-normal-nevada-16px">안녕하세요~!</div></div>
-          <div class="frame-427"><div class="text-2 pretendard-regular-normal-nevada-16px">안녕하세요!</div></div>
-          <div class="frame-428">
-            <div class="text-2 pretendard-regular-normal-nevada-16px">궁금한 거 있어서 연락드렸어요!</div>
+          
+          <div class="chat">
+            <ul>
+                <!-- 동적 생성-->
+            </ul>
           </div>
-          <div class="frame-426"><div class="text-2 pretendard-regular-normal-nevada-16px">앗, 네넹.</div></div>
-          <div class="frame-429"><div class="text-2 pretendard-regular-normal-nevada-16px">앗, 넴ㅋㅋㅋ</div></div>
-          <div class="frame-430">
-            <p class="text-234 pretendard-regular-normal-nevada-16px">
-              챌린지 하신거 봤는데,<br />의지 완전 대박이시더라구용.ㅠ
-            </p>
+          
+          <!-- format-->
+          <div class="chat format">
+            <ul>
+                <li>
+                    <div class="sender">
+                        <span></span>
+                    </div>
+                    <div class="message">
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
           </div>
-          <div class="frame-431">
-            <p class="text-235 pretendard-regular-normal-nevada-16px">
-              저도 뮤지컬 때문에 소비 조절이 힘들어서<br />이번에 해 보려고 하는데, 어떻게 조절하셨<br />어요? 역시
-              의지겠죠.ㅠㅠ
-            </p>
-          </div>
-          <div class="rectangle-3390"></div>
+
+            <div class="rectangle-3390">
+                <form id="chattingForm" method="post">
+                    <input class="inputBox" type="text" placeholder="채팅을 입력해주세요"/>
+                </form>
+            </div>
           <div class="frame-72"><div class="text-236">전송</div></div>
         </div>
       </div>
     </div>
+    <!-- chatting.js -->
+    <script src="../public/javascript/chatting.js"></script>
   </body>
 </html>

@@ -10,6 +10,8 @@
     <link href="../public/stylesheets/groupReport.css" rel="stylesheet">
     <link href="../public/stylesheets/styleguide.css" rel="stylesheet">
     <link href="../public/stylesheets/global.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
 </head>
 
 <body style="margin: 0; background: #f4f5f8">
@@ -74,8 +76,10 @@
                     <span class="span fonth2">카페 지출이 평균 대비</span><span class="span1 fonth2"> 21%</span><span
                         class="span fonth2"> 많은 편</span>
                 </div>
-                <img class="vector-35" src="../public/images/vector-35@2x.svg" />
-                <img class="vector-36" src="../public/images/vector-36@2x.svg" />
+                <!--img class="vector-35" src="../public/images/vector-35@2x.svg" />
+                <img class="vector-36" src="../public/images/vector-36@2x.svg" /-->
+                <!-- 그래프 랜덤 생성 -->
+                <canvas id="myChart"></canvas>
                 <div class="ellipse-1059"></div>
                 <div class="overlap-group1">
                     <div class="text-22 valign-text-middle fontbody1bold">내 위치</div>
@@ -284,8 +288,53 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var xValues = ["","","","","","","","","","",""];
+        var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+        
+        new Chart("myChart", {
+          type: "line",
+          data: {
+            labels: xValues,
+            datasets: [{
+              fill: false,
+              lineTension: 0,
+              backgroundColor: "rgba(0,0,255,1.0)",
+              borderColor: "rgba(0,0,255,0.1)",
+              data: yValues
+            }]
+          },
+          options: {
+            legend: {display: false},
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        display: false
+                    },
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        display: false
+                    },
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }   
+                }]
+            },
+            elements: {
+                point:{
+                    radius: 0
+                }
+            }
+          }
+        });
+        </script>
     <!-- Bootstrap core JavaScript-->
-    <script src="../public/asset/bootstrap/js/jquery.min.js"></>
+    <script src="../public/asset/bootstrap/js/jquery.min.js"></script>
     <script src="../public/asset/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
