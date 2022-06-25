@@ -254,3 +254,33 @@ input{
 input:focus, textarea:focus, select:focus{
     outline: none;
 }
+.x1 .loginBtn {
+    align-items: flex-start;
+    background-color: var(--mainmainpurple);
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    left: 340px;
+    min-width: 328px;
+    padding: 11.5px 143px;
+    position: absolute;
+    top: 838px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+
+
+    width: 328px;
+
+
+    /* main/main_purple */
+
+    background: #5200FF;
+    border-radius: 8px;
+}
