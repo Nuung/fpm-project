@@ -133,7 +133,7 @@
   
   .frame-389 .frame-398 {
     align-items: flex-start;
-    background-color: var(--mainpurplelight05);
+    background-color: var(--graywhite);
     border-radius: 100px;
     display: flex;
     height: 34px;
@@ -155,7 +155,7 @@
   
   .frame-389 .frame-399 {
     align-items: flex-start;
-    background-color: var(--mainpurplelight05);
+    background-color: var(--graywhite);
     border-radius: 100px;
     display: flex;
     height: 34px;
@@ -168,7 +168,7 @@
   
   .frame-389 .frame-400 {
     align-items: flex-start;
-    background-color: var(--mainpurplelight05);
+    background-color: var(--graywhite);
     border-radius: 100px;
     display: flex;
     height: 34px;
@@ -194,7 +194,7 @@
   
   .frame-389 .frame-402 {
     align-items: flex-start;
-    background-color: var(--mainpurplelight05);
+    background-color: var(--graywhite);
     border-radius: 100px;
     display: flex;
     height: 34px;
@@ -216,7 +216,7 @@
   
   .frame-389 .frame-403 {
     align-items: flex-start;
-    background-color: var(--mainpurplelight05);
+    background-color: var(--graywhite);
     border-radius: 100px;
     display: flex;
     height: 34px;
@@ -1851,5 +1851,13 @@
     min-width: 52px;
     text-align: center;
     white-space: nowrap;
+  }
+
+  .hash:has(.selected){
+    background-color: #EEE5FF !important;
+  }
+
+  .selected{
+    color: #5200FF !important;
   }
   

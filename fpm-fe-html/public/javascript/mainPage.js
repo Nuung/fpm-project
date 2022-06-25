@@ -15,7 +15,7 @@ $(document).ready(function () {
       for (let i = 1; i <= 6; i++) {
         $("#hashtag" + i).text(hashtags[i - 1]);
       }
-      $("#nickName").text(nickName);
+      $(".nickName").text(nickName);
       $("#totalAmt").text(totalAmt.toLocaleString());
       let idx = 1;
       $.each(top3Spend, function(key, value){
@@ -53,4 +53,15 @@ $(document).ready(function () {
       },
     },
   });
+});
+
+$("[id^=hashtag]").on("click", function(){
+  $(this).toggleClass('selected');
+  let selectedTag = document.querySelector('.selected');
+  if(selectedTag === null)
+    location.href = "mainPage.js";
+  else{
+    let id = selectedTag.id;
+    location.href = `groupReport.html?${id}`
+  }
 });

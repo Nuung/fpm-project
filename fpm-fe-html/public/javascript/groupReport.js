@@ -1,4 +1,10 @@
 $(document).ready(function(){
+
+    const selectedTag = location.href.split('?')[1];
+    $('#'+selectedTag).toggleClass('selected');
+    jQuery('.selected').parent('div').css('background', '#EEE5FF');
+    jQuery('.selected').parent('div').css('border-color', '#BA99FF');
+
     $.ajax({
         type: "GET",
         url: "http://api.fpm.local/api/financial",
@@ -53,3 +59,14 @@ $(document).ready(function(){
       });  
     
 })
+
+$("[id^=hashtag]").on("click", function(){
+  jQuery('.selected').parent('div').css('background', '#FFFFFF');
+  jQuery('.selected').parent('div').css('border-color', '#D1D7DF');
+  $(this).toggleClass('selected');
+  let selectedTag = document.querySelector('.selected');
+  jQuery('.selected').parent('div').css('background', '#EEE5FF');
+  jQuery('.selected').parent('div').css('border-color', '#BA99FF');
+  if(selectedTag === null)
+    location.href = "mainPage.html";
+});
