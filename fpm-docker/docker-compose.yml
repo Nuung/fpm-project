@@ -8,7 +8,7 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ../fpm-be/static:/etc/nginx/static
       - ../fpm-be/media:/etc/nginx/media
-      - ../fpm-fe/dist:/usr/share/nginx
+      - ../fpm-fe-html/:/usr/share/nginx
       - ./nginx/log:/var/log/nginx
     ports:
       - "80:80"
