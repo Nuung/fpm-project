@@ -14,6 +14,9 @@ import store from "./store"
 //vue axios
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+//vue cookies
+import VueCookie from 'vue3-cookies'
+//vue carousel
 
 library.add(fas)
 
@@ -24,5 +27,6 @@ createApp(App)
 .use(router)
 .use(store)
 .use(VueAxios, axios)
+.use(VueCookie)
 .component("font-awesome-icon", FontAwesomeIcon)
 .mount('#app')

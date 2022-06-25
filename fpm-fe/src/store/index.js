@@ -13,9 +13,9 @@ export default createStore({
     //isLogin: state => state.isLogin
   },
   mutations: {
-    login: function(state, payload){
-      state.authToken = payload.token;
-      state.userId = payload.userId;
+    login: function(state, {token, userId}){
+      state.authToken = token;
+      state.userId = userId;
       state.isLogin = true;
     }
   },

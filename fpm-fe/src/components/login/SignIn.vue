@@ -35,11 +35,11 @@ export default {
             this.axios.post('/api/user/login', data)
                 .then((result) => {
                     if(result.status == 201){
-                        const payload = {
-                            token : result.data.token,
-                            useId : this.form.userId
-                        }
-                        this.$store.commit("login", payload);
+                        let token = result.data.data.token
+                        let userId = this.form.userId
+                        this.$store.commit("login", { token, userId });
+                        //document.cookie("authorization", result.data.data.token);
+                        this.axios.defaults.headers.common["authorization"] = result.data.data.token;
                         this.$router.push('/');
                     }
                 })
