@@ -487,7 +487,7 @@
   
   .x2 .wooribankcom-png-0-11 {
     height: 36px;
-    left: 67px;
+    left: 35px;
     object-fit: cover;
     position: absolute;
     top: 25px;
@@ -527,19 +527,21 @@
   }
   
   .x2 .text_label-3 {
-    align-self: flex-end;
+    left: 40px;
     letter-spacing: -0.50px;
     line-height: 18.9px;
-    min-height: 19px;
-    min-width: 22px;
+    position: absolute;
     text-align: center;
+    top: 65px;
     white-space: nowrap;
   }
   
   .x2 .wooribankcom-png-0-12 {
     height: 36px;
-    margin-left: 5px;
-    margin-top: 10.0px;
+    left: 35px;
+    object-fit: cover;
+    position: absolute;
+    top: 25px;
     width: 36px;
   }
   
@@ -762,4 +764,34 @@
     top: 288px;
     white-space: nowrap;
   }
+  .x2 .Btn {
+    align-items: flex-start;
+    background-color: #5200FF;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    left: 340px;
+    min-width: 328px;
+    padding: 11.5px 143px;
+    position: absolute;
+    top: 838px;
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+  
+  
+    width: 328px;
+  
+    /* main/main_purple */
+  
+    background: #5200FF;
+    border-radius: 8px;
+  }
+  
   

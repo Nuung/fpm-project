@@ -32,8 +32,8 @@ const loginEvent = async () => {
         location.href="../index.html";
       });
 
-      getFinancialDetail();
-      //return location.href="mainPage.html";
+      getFinancialDetail(); //현우야~고쳐~줘~
+      return location.href="choiceAsset.html";
 };
 //getCookie
 const getCookie = (cName) =>{
