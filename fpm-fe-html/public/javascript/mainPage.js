@@ -21,9 +21,8 @@ $(document).ready(function () {
       let irpAmt = res["data"]["userFinancialDetail"][0]["irpAmt"];
       let stockAmt = res["data"]["userFinancialDetail"][0]["stockAmt"];
       let realAmt = res["data"]["userFinancialDetail"][0]["realAmt"];
-      let top3Spend = res["data"]["userFinancialDetail"][0]["spendCategory"]["after"];
-
-      localStorage.setItem('hashtag', hashtags);
+      
+      localStorage.setItem('hashtag', hashtags); 
       localStorage.setItem('nickName', nickName);
       localStorage.setItem('follower', follower);
       localStorage.setItem('mostSpendAmt', mostSpendAmt);
@@ -34,19 +33,37 @@ $(document).ready(function () {
       localStorage.setItem('stockAmt', stockAmt);
       localStorage.setItem('realAmt', realAmt);
 
+      let amts = {
+        depositTotalAmt:totalAmt,
+        insureAmt:insureAmt,
+        irpAmt:irpAmt,
+        stockAmt:stockAmt,
+        realAmt:realAmt
+      }
+
+      let amtsname = {
+        depositTotalAmt: '일반 예금',
+        insureAmt: '보험',
+        irpAmt: 'IRP',
+        stockAmt: '주식',
+        realAmt: '부동산'
+      }
+
+      keysSorted = Object.keys(amts).sort(function(a,b){return amts[b]-amts[a]})
+       
+      $('#amt1').text(amtsname[keysSorted[0]]);
+      $('#amt2').text(amtsname[keysSorted[1]]);
+      $('#amt3').text(amtsname[keysSorted[2]]);
+
+      $('#amtamt1').text(amts[keysSorted[0]].toLocaleString());
+      $('#amtamt2').text(amts[keysSorted[1]].toLocaleString());
+      $('#amtamt3').text(amts[keysSorted[2]].toLocaleString());
+
       for (let i = 1; i <= 6; i++) {
         $("#hashtag" + i).text(hashtags[i - 1]);
       }
       $("#nickName").text(nickName);
-      $("#totalAmt").text(totalAmt.toLocaleString());
-      let idx = 1;
-      $.each(top3Spend, function(key, value){
-        //console.log(key, value);
-        if(idx > 3) return false;
-        $("#spend"+idx).text(key);
-        $("#spendAmt"+idx).text(value.toLocaleString());
-        idx++;
-      });
+      $("#totalAmt").text((totalAmt+insureAmt+irpAmt+stockAmt+realAmt).toLocaleString());
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
       alert("통신 실패.");
