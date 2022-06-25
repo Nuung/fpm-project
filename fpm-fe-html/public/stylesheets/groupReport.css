@@ -684,11 +684,17 @@
   }
   
   .frame-389 .flex-col {
-    align-items: center;
-    display: flex;
     flex-direction: column;
-    min-height: 141px;
-    width: 100px;
+    align-items: center;
+    background-color: var(--mainpurplelight05);
+    border-radius: 100px;
+    display: flex;
+    height: 24px;
+    left: 431px;
+    min-width: 69px;
+    padding: 1px 10px;
+    position: absolute;
+    top: 1380px;
   }
   
   .frame-389 .rectangle-3411 {

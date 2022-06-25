@@ -1,34 +1,20 @@
 $(document).ready(function () {
   $.ajax({
     type: "GET",
-    url: "http://api.fpm.local/api/user/3wspvfvxsdn8ks3/hashtag",
-    headers: {
-      authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjN3c3B2ZnZ4c2RuOGtzMyIsImlhdCI6MTY1NjEyMjUxNSwiZXhwIjoxNjg3NjU4NTE1LCJpc3MiOiJmcG0ifQ.tFeyTLzgLqqRWmdHGzfEMBCySuP48LkJ0aBhRtgyaTc",
-    },
-    success: function (res) {
-      //console.log(res);
-      for (let i = 1; i <= 5; i++) {
-        $("#hashtag" + i).text(res["user_hashtag"][i - 1]);
-      }
-    },
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-      alert("통신 실패.");
-    },
-  });
-
-  $.ajax({
-    type: "GET",
     url: "http://api.fpm.local/api/financial",
     headers: {
       authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjN3c3B2ZnZ4c2RuOGtzMyIsImlhdCI6MTY1NjEyMjUxNSwiZXhwIjoxNjg3NjU4NTE1LCJpc3MiOiJmcG0ifQ.tFeyTLzgLqqRWmdHGzfEMBCySuP48LkJ0aBhRtgyaTc",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNqY2YwaHM1ZmNkazI2MSIsImlhdCI6MTY1NjEzOTIyMSwiZXhwIjoxNjg3Njc1MjIxLCJpc3MiOiJmcG0ifQ.wpt9TFqGXJfAYXTIBSj2BeTBY2vqm-oFEhM91Gi_pKc",
     },
     success: function (res) {
       console.log(res);
+      let hashtags = res["data"]["user"]["hashtag"];
       let nickName = res["data"]["user"]["nickName"];
       let totalAmt = res["data"]["userFinancialDetail"][0]["depositTotalAmt"];
       let top3Spend = res["data"]["userFinancialDetail"][0]["spendCategory"]["after"];
+      for (let i = 1; i <= 6; i++) {
+        $("#hashtag" + i).text(hashtags[i - 1]);
+      }
       $("#nickName").text(nickName);
       $("#totalAmt").text(totalAmt.toLocaleString());
       let idx = 1;
