@@ -15,7 +15,7 @@ $(document).ready(function () {
       for (let i = 1; i <= 6; i++) {
         $("#hashtag" + i).text(hashtags[i - 1]);
       }
-      $(".nickName").text(nickName);
+      $("#nickName").text(nickName);
       $("#totalAmt").text(totalAmt.toLocaleString());
       let idx = 1;
       $.each(top3Spend, function(key, value){
@@ -64,4 +64,8 @@ $("[id^=hashtag]").on("click", function(){
     let id = selectedTag.id;
     location.href = `groupReport.html?${id}`
   }
+});
+
+$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+  $('#loading').hide();
 });
