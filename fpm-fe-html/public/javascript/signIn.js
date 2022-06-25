@@ -26,7 +26,7 @@ const loginEvent = async () => {
     })
     .then((res) => {
       document.cookie = `jwt_token=${res.data.token}`;
-      alert("로그인 성공");
+      // alert("로그인 성공");
     })
     .catch(err => {
       alert(err);
