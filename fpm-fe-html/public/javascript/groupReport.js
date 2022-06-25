@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
     const selectedTag = location.href.split('?')[1];
     $('#'+selectedTag).toggleClass('selected');
     jQuery('.selected').parent('div').css('background', '#EEE5FF');
