@@ -346,6 +346,26 @@
     color: #555;
     text-align: left;
   }
+  .screen .sendBtnCss {
+    border: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 16px;
+    gap: 12px;
+
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    left: 610px;
+    top: 770px;
+
+    /* main/main_purple */
+
+    background: #5200FF;
+    border-radius: 8px;
+}
 
   .screen .yourBallon {
     align-items: flex-start;
