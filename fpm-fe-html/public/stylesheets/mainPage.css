@@ -397,16 +397,6 @@
   width: 328px;
 }
 
-#lifestyle {
-  background-color: var(--cultured-pearl);
-  border-radius: 16px;
-  height: 236px;
-  left: 0;
-  position: absolute;
-  top: 2px;
-  width: 328px;
-}
-
 .frame-388 .group-1675 {
   align-items: center;
   display: flex;
@@ -928,7 +918,7 @@
   width: 104px;
 }
 
-#pattern1 {
+.frame-388 .emoji-1 {
   align-self: flex-end;
   height: 31px;
   margin-right: 19.0px;
@@ -959,7 +949,7 @@
   width: 104px;
 }
 
-#pattern2 {
+.frame-388 .emoji-2 {
   align-self: flex-end;
   height: 34px;
   margin-right: 14.2px;
@@ -998,7 +988,7 @@
   text-align: center;
 }
 
-#pattern3 {
+.frame-388 .emoji-3 {
   height: 32px;
   left: 258px;
   position: absolute;
