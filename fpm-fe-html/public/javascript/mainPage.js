@@ -1,17 +1,39 @@
 $(document).ready(function () {
+
+  let token = document.cookie.split('=')[1];
+
   $.ajax({
     type: "GET",
     url: "http://api.fpm.local/api/financial",
     headers: {
       authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNqY2YwaHM1ZmNkazI2MSIsImlhdCI6MTY1NjEzOTIyMSwiZXhwIjoxNjg3Njc1MjIxLCJpc3MiOiJmcG0ifQ.wpt9TFqGXJfAYXTIBSj2BeTBY2vqm-oFEhM91Gi_pKc",
+        token,
     },
     success: function (res) {
       console.log(res);
       let hashtags = res["data"]["user"]["hashtag"];
       let nickName = res["data"]["user"]["nickName"];
+      let follower = res["data"]["user"]["follower"];
+      let mostSpendAmt = res["data"]["userFinancialDetail"][0]["mostSpendAmt"];
+      let leastSpendAmt = res["data"]["userFinancialDetail"][0]["leastSpendAmt"];
       let totalAmt = res["data"]["userFinancialDetail"][0]["depositTotalAmt"];
+      let insureAmt = res["data"]["userFinancialDetail"][0]["insureAmt"];
+      let irpAmt = res["data"]["userFinancialDetail"][0]["irpAmt"];
+      let stockAmt = res["data"]["userFinancialDetail"][0]["stockAmt"];
+      let realAmt = res["data"]["userFinancialDetail"][0]["realAmt"];
       let top3Spend = res["data"]["userFinancialDetail"][0]["spendCategory"]["after"];
+
+      localStorage.setItem('hashtag', hashtags);
+      localStorage.setItem('nickName', nickName);
+      localStorage.setItem('follower', follower);
+      localStorage.setItem('mostSpendAmt', mostSpendAmt);
+      localStorage.setItem('leastSpendAmt', leastSpendAmt);
+      localStorage.setItem('depositTotalAmt', totalAmt);
+      localStorage.setItem('insureAmt', insureAmt);
+      localStorage.setItem('irpAmt', irpAmt);
+      localStorage.setItem('stockAmt', stockAmt);
+      localStorage.setItem('realAmt', realAmt);
+
       for (let i = 1; i <= 6; i++) {
         $("#hashtag" + i).text(hashtags[i - 1]);
       }
@@ -28,29 +50,6 @@ $(document).ready(function () {
     },
     error: function (XMLHttpRequest, textStatus, errorThrown) {
       alert("통신 실패.");
-    },
-  });
-
-  var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-  var yValues = [55, 49, 44, 24, 15];
-  var barColors = ["#b91d47", "#00aba9", "#2b5797", "#e8c3b9", "#1e7145"];
-
-  new Chart("myChart", {
-    type: "doughnut",
-    data: {
-      labels: xValues,
-      datasets: [
-        {
-          backgroundColor: barColors,
-          data: yValues,
-        },
-      ],
-    },
-    options: {
-      title: {
-        display: true,
-        text: "World Wide Wine Production 2018",
-      },
     },
   });
 });
