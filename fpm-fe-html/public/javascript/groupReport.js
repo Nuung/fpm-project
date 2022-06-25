@@ -16,13 +16,12 @@ $(document).ready(function(){
           console.log(res);
           let hashtags = res["data"]["user"]["hashtag"];
           let nickName = res["data"]["user"]["nickName"];
-          let totalAmt = res["data"]["userFinancialDetail"][0]["depositTotalAmt"];
           let top3Spend = res["data"]["userFinancialDetail"][0]["spendCategory"]["after"];
           for (let i = 1; i <= 6; i++) {
             $("#hashtag" + i).text(hashtags[i - 1]);
           }
           $(".nickName").text(nickName);
-          $(".totalAmt").text(totalAmt.toLocaleString());
+          $(".totalAmt").text((localStorage.getItem('depositTotalAmt')+localStorage.getItem('insureAmt')+localStorage.getItem('irpAmt')+localStorage.getItem('stockAmt')+localStorage.getItem('realAmt')).toLocaleString());
           let idx = 1;
           $.each(top3Spend, function(key, value){
             //console.log(key, value);
