@@ -52,6 +52,27 @@ $(document).ready(function () {
       alert("통신 실패.");
     },
   });
+
+  $.ajax({
+    type: "GET",
+    url: "http://api.fpm.local/api/user/hashtag/recommand",
+    headers: {
+      authorization:
+        token,
+    },
+    success: function (res) {
+      recomm1 = res['recommandUsers'][0]['nickName'];
+      recomm2 = res['recommandUsers'][1]['nickName'];
+      recomm3 = res['recommandUsers'][2]['nickName'];
+
+      $("#recommUser1").text(recomm1);
+      $("#recommUser2").text(recomm2);
+      $("#recommUser3").text(recomm3);
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("통신 실패.");
+    },
+  });
 });
 
 $("[id^=hashtag]").on("click", function(){
