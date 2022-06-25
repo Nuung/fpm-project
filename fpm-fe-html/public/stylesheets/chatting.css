@@ -312,7 +312,7 @@
 }
 
 .screen .inputBox {
-  text-align: center;
+  padding-left: 16px;
   border: 0px;
   width: 280px;
   height: 60px;
@@ -321,43 +321,35 @@
 /* =============================================== */
 
 .screen .chat {
+  margin-top: 100px;
   padding-bottom: 80px;
 }
 
 .screen .chat ul {
-  width: 100%;
+  /* max-width: 500px; */
   list-style: none;
 }
 
 .screen .chat ul li {
-  width: 100%;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: flex-end;
 }
 
-.screen .chat ul li.left {
-  text-align: left;
-}
-
-.screen .chat ul li.right {
-  text-align: right;
-}
-
-.screen .chat ul li>div.sender {
-  margin: 10px 20px 0 20px;
-  font-weight: bold;
+.msg--time {
+  font-size: smaller;
+  color: #9296A5;
 }
 
 .screen .chat ul li>div.message {
-  display: inline-block;
-  word-break: break-all;
-  margin: 5px 20px;
-  max-width: 75%;
-  border: 1px solid #888;
+  /* max-width: 90%; */
+  /* min-width: 100px; */
   padding: 10px;
-  border-radius: 5px;
-  background-color: aliceblue;
-  color: #555;
-  text-align: left;
+  border-radius: 8px;
+  background-color: #fff;
 }
+
+/* =============================================== */
 
 .screen .sendBtnCss {
   border: 0px;

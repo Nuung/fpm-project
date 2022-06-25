@@ -39,11 +39,6 @@
     <div class="container-center-horizontal">
       <div class="screen screen">
         <div class="overlap-group1">
-          <div class="overlap-group">
-            <img class="vector-14" src="../public/images/vector-14-1@1x.svg" />
-          </div>
-          <div class="rectangle-3391"></div>
-          <div class="rectangle-3367"></div>
           <div class="status-bar-i-phone-x-or-newer">
             <div class="time">
               <div class="x941 sfprotext-normal-black-15px">9:40</div>
@@ -53,27 +48,13 @@
               src="../public/images/right-side-1@2x.svg"
             />
           </div>
-          <a href="-3.html"
+          <a href="./"
             ><img
               class="arrow-back-ios"
               src="../public/images/arrow-back-ios@2x.svg"
             />
           </a>
           <div class="text-223 fonth1">떡상간다</div>
-
-          <!-- format-->
-          <div class="chat format">
-            <ul>
-              <li>
-                <div class="sender">
-                  <span>sender</span>
-                </div>
-                <div class="message">
-                  <span>msㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㄹㅇㅁㄴㅇㄹg</span>
-                </div>
-              </li>
-            </ul>
-          </div>
 
           <!-- chatting 전송 DIV set -->
           <div class="rectangle-3390">
@@ -84,12 +65,25 @@
               placeholder="채팅을 입력해주세요"
             />
           </div>
-          <button class="sendBtnCss" id="sendBtn">
+          <button class="sendBtnCss hvr-push" id="sendBtn">
             <p class="text-236 fontbody0semibold">전송</p>
           </button>
         </div>
+
+        <!-- format-->
+        <div class="chat">
+          <ul id="chat--append">
+            <!-- <li>
+              <div class="message">
+                <span>msㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㄹㅇㅁㄴㅇㄹg</span>
+              </div>
+            </li> -->
+          </ul>
+        </div>
       </div>
     </div>
+    
+    <script src="../public/asset/bootstrap/js/jquery.min.js"></script>
     <!-- chatting.js -->
     <script src="../public/javascript/chatting.js"></script>
   </body>
