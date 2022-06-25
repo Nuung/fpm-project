@@ -31,6 +31,7 @@
                 <div class="top3 fonth1">내 자산 TOP3</div>
                 <div class="group-2">
                     <div class="ellipse-container">
+                        <!--canvas id="myChart" style="width:100%;max-width:600px"></!--canvas-->
                         <img class="ellipse-17" src="../public/images/ellipse-17@2x.svg" />
                         <img class="ellipse-16" src="../public/images/ellipse-16@2x.svg" />
                     </div>
@@ -45,14 +46,14 @@
                     <div class="ellipse-988"></div>
                     <div class="number fonth2">1</div>
                 </div>
-                <div class="text-174 valign-text-middle pretendard-regular-normal-mako-16px">일반 예금</div>
-                <div class="nnnn fontbody0bold">NNNN만원</div>
+                <div class="text-174 valign-text-middle pretendard-regular-normal-mako-16px"><span id="spend1">일반 예금</span></div>
+                <div class="nnnn fontbody0bold"><span id="spendAmt1">NNNN</span>만원</div>
                 <div class="rectangle-3368-1"></div>
-                <div class="text-175 valign-text-middle pretendard-regular-normal-mako-16px">보험</div>
-                <div class="nnn fontbody0bold">NNN만원</div>
+                <div class="text-175 valign-text-middle pretendard-regular-normal-mako-16px"><span id="spend2">보험</span></div>
+                <div class="nnn fontbody0bold"><span id="spendAmt2">NNN</span>만원</div>
                 <div class="rectangle-3368-2"></div>
-                <div class="irp valign-text-middle pretendard-regular-normal-mako-16px">IRP</div>
-                <div class="nnn-1 fontbody0bold">NNN만원</div>
+                <div class="irp valign-text-middle pretendard-regular-normal-mako-16px"><span id="spend3">IRP</span></div>
+                <div class="nnn-1 fontbody0bold"><span id="spendAmt3">NNN</span>만원</div>
                 <div class="text-176 fontbody3">-</div>
                 <div class="group-1669">
                     <div class="number-1 fontbody3">1</div>
@@ -151,37 +152,37 @@
                                 <div class="text-197 fontbody0semibold">투자보다는<br />저축을</div>
                             </div>
                             <div class="overlap-group2-1">
+                                <img class="emoji-3" src="../public/images/emoji-1@2x.svg" />
                                 <div class="text-198 fontbody0semibold">현명한<br />소비자</div>
                             </div>
                         </div>
-                        <img class="emoji-3" src="../public/images/emoji-1@2x.svg" />
                     </div>
                 </div>
-                <div class="text-207 fonth3">홍길동 씨의 총 자산</div>
+                <div class="text-207 fonth3"><span id="nickName">홍길동</span> 씨의 총 자산</div>
                 <div class="text-208 fonth3">주요 해시태그</div>
-                <div class="text-209">52,345,661원</div>
+                <div class="text-209"><span id="totalAmt">52,345,661원</span></div>
                 <a href="frame-389.html">
                     <div class="frame-404 border-1px-mainpurplelight03">
                         <div class="text-21 pretendard-medium-electric-violet-16px">전체</div>
                     </div>
                 </a>
                 <div class="frame-398 border-1px-grayd1d7df">
-                    <div class="text-21-1 pretendard-medium-biloba-flower-16px">뮤지컬</div>
+                    <div id="hashtag1" class="text-21-1 pretendard-medium-biloba-flower-16px">뮤지컬</div>
                 </div>
                 <div class="frame-399 border-1px-grayd1d7df">
-                    <div class="text-21 pretendard-medium-biloba-flower-16px">독서</div>
+                    <div id="hashtag2" class="text-21 pretendard-medium-biloba-flower-16px">독서</div>
                 </div>
                 <div class="frame-400 border-1px-grayd1d7df">
-                    <div class="text-21 pretendard-medium-biloba-flower-16px">영화</div>
+                    <div id="hashtag3" class="text-21 pretendard-medium-biloba-flower-16px">영화</div>
                 </div>
                 <div class="frame-401 border-1px-grayd1d7df">
-                    <div class="text-21-1 pretendard-medium-biloba-flower-16px">아이돌</div>
+                    <div id="hashtag4" class="text-21-1 pretendard-medium-biloba-flower-16px">아이돌</div>
                 </div>
                 <div class="frame-402 border-1px-grayd1d7df">
-                    <div class="text-215 pretendard-medium-biloba-flower-16px">베이커리</div>
+                    <div id="hashtag5" class="text-215 pretendard-medium-biloba-flower-16px">베이커리</div>
                 </div>
                 <div class="frame-403 border-1px-grayd1d7df">
-                    <div class="text-21 pretendard-medium-biloba-flower-16px">카페</div>
+                    <div id="hashtag6" class="text-21 pretendard-medium-biloba-flower-16px">카페</div>
                 </div>
                 <div class="frame-397 border-1px-grayd1d7df">
                     <div class="text-21-1 pretendard-medium-nevada-16px">더보기</div>
@@ -289,6 +290,8 @@
 
     <!-- mainPage.js -->
     <script src="../public/javascript/mainPage.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </body>
 
 </html>

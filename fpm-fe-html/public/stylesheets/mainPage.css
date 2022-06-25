@@ -220,13 +220,13 @@
   line-height: 24px;
   position: absolute;
   top: 759px;
-  width: 67px;
+  width: 80px;
 }
 
 .frame-388 .nnnn {
   color: var(--gray454955);
   font-weight: 700;
-  left: 535px;
+  left: 520px;
   line-height: 24px;
   position: absolute;
   text-align: right;
@@ -251,13 +251,13 @@
   line-height: 24px;
   position: absolute;
   top: 803px;
-  width: 32px;
+  width: 80px;
 }
 
 .frame-388 .nnn {
   color: var(--gray454955);
   font-weight: 700;
-  left: 547px;
+  left: 520px;
   line-height: 24px;
   position: absolute;
   text-align: right;
@@ -282,13 +282,13 @@
   line-height: 24px;
   position: absolute;
   top: 847px;
-  width: 32px;
+  width: 80px;
 }
 
 .frame-388 .nnn-1 {
   color: var(--gray454955);
   font-weight: 700;
-  left: 547px;
+  left: 520px;
   line-height: 24px;
   position: absolute;
   text-align: right;
@@ -327,10 +327,9 @@
 }
 
 .frame-388 .arrow-drop-up-1 {
-  align-self: flex-end;
   height: 24px;
-  margin-bottom: -723px;
   margin-left: 1px;
+  margin-top: 0;
   width: 24px;
 }
 
@@ -506,13 +505,16 @@
   height: 101px;
   min-width: 328px;
   padding: 21px 20px;
+  position: relative;
 }
 
 .frame-388 .text-180 {
   color: var(--mainmainpurple);
   font-weight: 700;
   line-height: 28.8px;
-  margin-top: 2.0px;
+  position: absolute;
+  top: 40px;
+  left: 28px;
   min-height: 29px;
   min-width: 9px;
   text-align: center;
@@ -525,8 +527,10 @@
   font-family: var(--font-family-pretendard-regular);
   font-size: var(--font-size-l);
   letter-spacing: 0;
+  position: absolute;
   line-height: 28.8px;
-  margin-left: 31px;
+  top: 25px;
+  left: 45px;
   min-height: 58px;
   min-width: 209px;
   text-align: center;
@@ -541,8 +545,9 @@
   color: var(--mainmainpurple);
   font-weight: 700;
   line-height: 28.8px;
-  margin-left: 30px;
-  margin-top: 2.0px;
+  position: absolute;
+  left: 300px;
+  top: 40px;
   min-height: 29px;
   min-width: 9px;
   text-align: center;
@@ -973,10 +978,10 @@
   background-color: var(--grayf4f6f9);
   border-radius: 16px;
   display: flex;
-  height: 140px;
+  height: 164px;
   margin-left: 8px;
   margin-top: 0;
-  min-width: 104px;
+  width: 104px;
   padding: 10.0px 31.0px;
 }
 
