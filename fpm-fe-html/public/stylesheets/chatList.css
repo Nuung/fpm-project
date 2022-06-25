@@ -1,0 +1,398 @@
+/* screen - chatting-list */
+
+.chatting-list {
+    align-items: flex-start;
+    background-color: var(--grayf4f6f9);
+    display: flex;
+    height: 740px;
+    overflow: hidden;
+    width: 360px;
+  }
+  
+  .chatting-list .overlap-group1 {
+    height: 766px;
+    margin-left: -324px;
+    margin-top: -86.0px;
+    position: relative;
+    width: 871px;
+  }
+  
+  .chatting-list .overlap-group {
+    height: 758px;
+    left: 256px;
+    position: absolute;
+    top: 0;
+    width: 557px;
+  }
+  
+  .chatting-list .ellipse-990 {
+    background: linear-gradient(180deg, rgb(217.69, 208.79, 251.81) 0%, rgba(226, 220, 249, 0) 100%);
+    border-radius: 42.32px;
+    filter: blur(4px);;
+    height: 85px;
+    left: 290px;
+    position: absolute;
+    top: 222px;
+    transform: rotate(-45.00deg);
+    width: 85px;
+  }
+  
+  .chatting-list .ellipse-989 {
+    background: linear-gradient(180deg, rgb(207.78, 195.74, 253.94) 0%, rgba(206, 194.33, 250.75, 0) 100%);
+    border-radius: 111.27px;
+    filter: blur(4px);;
+    height: 223px;
+    left: 289px;
+    opacity: 0.5;
+    position: absolute;
+    top: 46px;
+    transform: rotate(-45.00deg);
+    width: 223px;
+  }
+  
+  .chatting-list .vector-14 {
+    height: 537px;
+    left: 0;
+    position: absolute;
+    top: 221px;
+    width: 360px;
+  }
+  
+  .chatting-list .rectangle-3500 {
+    background-color: var(--graywhite);
+    height: 679px;
+    left: 324px;
+    position: absolute;
+    top: 86px;
+    width: 360px;
+  }
+  
+  .chatting-list .rectangle-3367 {
+    -webkit-backdrop-filter: blur(20px) brightness(100%);
+    backdrop-filter: blur(20px) brightness(100%);
+    background-color: var(--black-haze-2);
+    height: 100px;
+    left: 324px;
+    position: absolute;
+    top: 86px;
+    width: 360px;
+  }
+  
+  .chatting-list .status-bar-i-phone-x-or-newer {
+    align-items: center;
+    display: flex;
+    height: 44px;
+    left: 324px;
+    padding: 11px 14.7px;
+    position: absolute;
+    top: 86px;
+    width: 360px;
+  }
+  
+  .chatting-list .time {
+    align-items: flex-end;
+    align-self: flex-end;
+    border-radius: 24px;
+    display: flex;
+    height: 21px;
+    margin-left: 9px;
+    min-width: 54px;
+    padding: 0 10px;
+  }
+  
+  .chatting-list .x941 {
+    letter-spacing: -0.50px;
+    line-height: 20px;
+    min-height: 20px;
+    min-width: 34px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  .chatting-list .right-side {
+    height: 11px;
+    margin-left: 201px;
+    margin-top: 2.0px;
+    width: 67px;
+  }
+  
+  .chatting-list .arrow-back-ios {
+    height: 24px;
+    left: 340px;
+    position: absolute;
+    top: 146px;
+    width: 24px;
+  }
+  
+  .chatting-list .rectangle-3501 {
+    height: 56px;
+    left: 340px;
+    object-fit: cover;
+    position: absolute;
+    top: 332px;
+    width: 56px;
+  }
+  
+  .chatting-list .rectangle-3502 {
+    height: 56px;
+    left: 340px;
+    object-fit: cover;
+    position: absolute;
+    top: 448px;
+    width: 56px;
+  }
+  
+  .chatting-list .rectangle-3503 {
+    height: 56px;
+    left: 340px;
+    object-fit: cover;
+    position: absolute;
+    top: 564px;
+    width: 56px;
+  }
+  
+  .chatting-list .rectangle-3504 {
+    height: 56px;
+    left: 340px;
+    object-fit: cover;
+    position: absolute;
+    top: 680px;
+    width: 56px;
+  }
+  
+  .chatting-list .text-1 {
+    color: var(--grayblack);
+    font-weight: 700;
+    left: 412px;
+    position: absolute;
+    top: 335px;
+  }
+  
+  .chatting-list .sj {
+    color: var(--grayblack);
+    font-weight: 700;
+    left: 412px;
+    position: absolute;
+    top: 451px;
+  }
+  
+  .chatting-list .text-2 {
+    color: var(--grayblack);
+    font-weight: 700;
+    left: 412px;
+    position: absolute;
+    top: 567px;
+  }
+  
+  .chatting-list .text-3 {
+    color: var(--grayblack);
+    font-weight: 700;
+    left: 412px;
+    position: absolute;
+    top: 682px;
+  }
+  
+  .chatting-list .text-4 {
+    color: var(--gray9296a5);
+    font-weight: 500;
+    left: 644px;
+    position: absolute;
+    text-align: right;
+    top: 338px;
+  }
+  
+  .chatting-list .text-5 {
+    color: var(--gray9296a5);
+    font-weight: 500;
+    left: 644px;
+    position: absolute;
+    text-align: right;
+    top: 454px;
+  }
+  
+  .chatting-list .date {
+    color: var(--gray9296a5);
+    font-weight: 500;
+    left: 616px;
+    position: absolute;
+    top: 570px;
+  }
+  
+  .chatting-list .date-1 {
+    color: var(--gray9296a5);
+    font-weight: 500;
+    left: 619px;
+    position: absolute;
+    text-align: right;
+    top: 685px;
+  }
+  
+  .chatting-list .text-6 {
+    color: var(--grayblack);
+    font-weight: 700;
+    left: 457px;
+    line-height: 30.5px;
+    position: absolute;
+    text-align: center;
+    top: 142px;
+    white-space: nowrap;
+  }
+  
+  .chatting-list .text-7 {
+    left: 412px;
+    letter-spacing: -0.48px;
+    line-height: 24px;
+    position: absolute;
+    top: 362px;
+    white-space: nowrap;
+  }
+  
+  .chatting-list .text-8 {
+    left: 412px;
+    letter-spacing: -0.48px;
+    line-height: 24px;
+    position: absolute;
+    top: 478px;
+    white-space: nowrap;
+  }
+  
+  .chatting-list .text-9 {
+    left: 412px;
+    letter-spacing: -0.48px;
+    line-height: 24px;
+    position: absolute;
+    top: 594px;
+    white-space: nowrap;
+  }
+  
+  .chatting-list .text-10 {
+    left: 412px;
+    letter-spacing: -0.48px;
+    line-height: 24px;
+    position: absolute;
+    top: 709px;
+    white-space: nowrap;
+  }
+  
+  .chatting-list .line-367 {
+    height: 1px;
+    left: 324px;
+    position: absolute;
+    top: 301px;
+    width: 360px;
+  }
+  
+  .chatting-list .line-368 {
+    height: 1px;
+    left: 324px;
+    position: absolute;
+    top: 417px;
+    width: 360px;
+  }
+  
+  .chatting-list .line-369 {
+    height: 1px;
+    left: 324px;
+    position: absolute;
+    top: 533px;
+    width: 360px;
+  }
+  
+  .chatting-list .line-370 {
+    height: 1px;
+    left: 324px;
+    position: absolute;
+    top: 649px;
+    width: 360px;
+  }
+  
+  .chatting-list .line-371 {
+    height: 1px;
+    left: 324px;
+    position: absolute;
+    top: 765px;
+    width: 360px;
+  }
+  
+  .chatting-list .group-1816 {
+    align-items: flex-end;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    left: 340px;
+    min-height: 56px;
+    padding: 0 6px;
+    position: absolute;
+    top: 216px;
+    width: 332px;
+  }
+  
+  .chatting-list .text-container {
+    align-items: center;
+    display: flex;
+    height: 19px;
+    margin-top: 4px;
+    min-width: 254px;
+  }
+  
+  
+  .chatting-list .flex-row {
+    align-items: center;
+    display: flex;
+    height: 24px;
+    margin-right: 1px;
+    margin-top: 8px;
+    min-width: 253px;
+  }
+  
+  .chatting-list .text-13 {
+    letter-spacing: -0.48px;
+    line-height: 24px;
+    min-height: 24px;
+    min-width: 203px;
+    white-space: nowrap;
+  }
+  
+  
+  .chatting-list .text-14 {
+    color: var(--grayf4f6f9);
+    font-family: var(--font-family-pretendard-regular);
+    font-size: var(--font-size-xxxs);
+    font-weight: 400;
+    letter-spacing: 0;
+    min-height: 14px;
+  }
+  
+  .chatting-list .unRead {
+    align-items: flex-start;
+    background-color: var(--mainmainpurple);
+    border-radius: 100px;
+    display: flex;
+    height: 20px;
+    margin-left: 3%;
+    min-width: 37px;
+    padding: 2px 8px;
+  }
+  .chatting-list .profileImg {
+    height: 56px;
+    left: 1px;
+    object-fit: cover;
+    position: absolute;
+    border-radius: 30px;
+    top: 3%;
+    width: 56px;
+  }
+  .chatting-list .nickNm {
+    color: var(--grayblack);
+    margin-left: 1%;
+    font-weight: 700;
+    min-height: 19px;
+    min-width: 57px;
+  }
+  
+  .chatting-list .sendDate {
+    color: var(--gray9296a5);
+    font-weight: 500;
+    margin-left: 46%;
+    margin-top: 1.0px;
+  }
