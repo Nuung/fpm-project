@@ -47,7 +47,6 @@ export const getFinancialDetailById = async (req, res) => {
     delete user._doc.password;
     const data = {
         user,
-        userRank,
         userFinancialDetail,
     };
     return res.status(200).json({ data });
