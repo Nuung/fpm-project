@@ -185,19 +185,7 @@
     position: absolute;
     top: 503px;
   }
-  
-  .screen .frame-425 {
-    align-items: flex-start;
-    background-color: var(--graywhite);
-    border-radius: 8px;
-    display: flex;
-    height: 48px;
-    left: 388px;
-    min-width: 101px;
-    padding: 11px 10px;
-    position: absolute;
-    top: 370px;
-  }
+
   
   .screen .text-2 {
     letter-spacing: -0.48px;
@@ -244,19 +232,7 @@
     position: absolute;
     top: 426px;
   }
-  
-  .screen .frame-429 {
-    align-items: flex-start;
-    background-color: var(--graywhite);
-    border-radius: 8px;
-    display: flex;
-    height: 48px;
-    left: 570px;
-    min-width: 95px;
-    padding: 11px 10px;
-    position: absolute;
-    top: 484px;
-  }
+    
   
   .screen .frame-430 {
     align-items: flex-start;
@@ -332,4 +308,69 @@
     text-align: center;
     white-space: nowrap;
   }
-  
+  .screen .inputBox {
+    border: 0px;
+    width: 280px;
+    height: 60px;
+    padding-left: 20%;
+  }
+  .screen .chat {
+    padding-bottom: 80px;
+  }
+  .screen .chat ul {
+    width: 100%;
+    list-style: none;
+  }
+  .screen .chat ul li {
+    width:100%;
+  }
+  .screen .chat ul li.left{
+    text-align: left;
+  }
+  .screen .chat ul li.right{
+    text-align: right;
+  }
+  .screen .chat ul li > div.sender {
+    margin: 10px 20px 0 20px;
+    font-weight: bold;
+  }
+  .screen .chat ul li > div.message {
+    display: inline-block;
+    word-break: break-all;
+    margin: 5px 20px;
+    max-width: 75%;
+    border: 1px solid #888;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: aliceblue;
+    color: #555;
+    text-align: left;
+  }
+
+  .screen .yourBallon {
+    align-items: flex-start;
+    background-color: var(--graywhite);
+    border-radius: 8px;
+    display: flex;
+    height: 48px;
+    left: 388px;
+    min-width: 101px;
+    padding: 11px 10px;
+    position: absolute;
+    top: 370px;
+  }
+  .screen .myBalloon {
+    align-items: flex-start;
+    background-color: var(--graywhite);
+    border-radius: 8px;
+
+    clear: both;
+    float:left;
+
+    padding: 11px 10px;
+    position: absolute;
+    top:484px;
+    display: flex;
+    height: 48px;
+    right: 3%;
+  }
