@@ -60,6 +60,6 @@ export const getFinancialDetail = () => {
         });
 };
 
-//getUser();
+getUser();
 getFinancialDetail();
 

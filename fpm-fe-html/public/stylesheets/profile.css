@@ -74,7 +74,7 @@
 
 .sayongja-peuropil .rectangle-3536 {
   background-color: var(--graywhite);
-  height: 544px;
+  height: 700px;
   left: 324px;
   position: absolute;
   top: 387px;
@@ -687,11 +687,11 @@
 .sayongja-peuropil .text-24 {
   color: var(--grayblack);
   font-weight: 700;
-  left: 144px;
+  left: 75px;
   line-height: 30.5px;
-  position: absolute;
+  position: relative;
   text-align: center;
-  top: 56px;
+  top: 40px;
   white-space: nowrap;
   z-index: 5;
 }
