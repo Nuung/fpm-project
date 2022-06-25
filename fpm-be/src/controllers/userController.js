@@ -3,7 +3,7 @@
 import {
     makeToken, makeRefreshToken,
     findUserById, findUserByPwd, createUser,
-    deleteUserAll,
+    deleteUserAll, findRecommandUserById,
     updateUserHashTag, getAllUserAndUpdateHashTag
 } from '../service/userService.js';
 
@@ -158,6 +158,20 @@ export const getUserHashtag = async (req, res) => {
                 "user_hashtag": user.hashtag
             });
         }
+    }
+    else {
+        const error = '올바르지 않은 접근 입니다.';
+        return res.status(401).json({ error });
+    }
+};
+
+
+// user의 추천 사용자 가져오기
+export const getUserRecommand = async (req, res) => {
+    const user = await findUserById(req.user.id);
+    if (user) {
+        const targetUsers = await findRecommandUserById(user);
+        return res.status(200).json({ recommandUsers: targetUsers });
     }
     else {
         const error = '올바르지 않은 접근 입니다.';

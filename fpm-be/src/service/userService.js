@@ -40,6 +40,16 @@ export const findUserByPwd = async (user, pwd) => {
     }
 };
 
+// find 추천 사용자 
+export const findRecommandUserById = async (user) => {
+    try {
+        return await User.find({hashtag: {$in: user.hashtag}});
+    } catch (err) {
+        console.error(err);
+        return err;   
+    }
+};
+
 // user create 
 export const createUser = async (body) => {
     const { userId, password, nickName } = body;
