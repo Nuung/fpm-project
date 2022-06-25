@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    $('#loading').hide();
     const selectedTag = location.href.split('?')[1];
     $('#'+selectedTag).toggleClass('selected');
     jQuery('.selected').parent('div').css('background', '#EEE5FF');
@@ -37,9 +36,12 @@ $(document).ready(function(){
         },
       });
 
-      let data = {
-        hashtag: JSON.stringify(["생필품"])
-      }
+      
+    $(window).on('load', function () {
+      let tag = document.querySelector('.selected').outerText;
+      let tagText = [];
+      tagText.push(tag);
+      let data = JSON.stringify(tagText);
 
       $.ajax({
         type: "GET",
@@ -56,8 +58,9 @@ $(document).ready(function(){
         error: function (XMLHttpRequest, textStatus, errorThrown) {
           alert("통신 실패.");
         },
-      });  
-    
+      });
+      $('#loading').hide();
+    });
 })
 
 $("[id^=hashtag]").on("click", function(){
@@ -69,6 +72,8 @@ $("[id^=hashtag]").on("click", function(){
 
   let tagText = []
   let selectedTag = document.querySelectorAll('.selected');
+  if(selectedTag.length === 0)
+    location.href = "mainPage.html";
   for(let i=0; i<selectedTag.length; i++){
     tagText.push(selectedTag[i].outerText)
   }
@@ -94,6 +99,4 @@ $("[id^=hashtag]").on("click", function(){
     },
   });
 
-  if(selectedTag === null)
-    location.href = "mainPage.html";
 });

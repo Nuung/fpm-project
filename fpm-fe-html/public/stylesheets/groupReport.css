@@ -370,6 +370,14 @@
     top: 1194px;
   }
   
+  #myChart {
+    max-height: 120px;
+    left: 340px;
+    position: absolute;
+    top: 597px;
+    max-width: 328px;
+  }
+/*
   .frame-389 .vector-35 {
     height: 89px;
     left: 340px;
@@ -385,7 +393,7 @@
     top: 606px;
     width: 328px;
   }
-  
+  */
   .frame-389 .ellipse-1059 {
     background-color: var(--mainmainpurple);
     border-radius: 5px;
