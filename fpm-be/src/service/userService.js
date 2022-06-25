@@ -40,7 +40,6 @@ export const findUserByPwd = async (user, pwd) => {
     }
 };
 
-
 // user create 
 export const createUser = async (body) => {
     const { userId, password, nickName } = body;
@@ -59,7 +58,6 @@ export const createUser = async (body) => {
         return err;
     }
 };
-
 
 // user hash update -> 최초로 user의 hash태그가 만들어 질 때!
 export const updateUserHashTag = async (user) => {
@@ -90,7 +88,7 @@ export const updateUserHashTag = async (user) => {
         // 그럼 상단 4개만 hashTagList에 추가한다!
         hashTagList.push(user.gender);
         hashTagList.push(user.age);
-        hashTagList.push(...[...sortedResult.keys()].slice(0, 3));
+        hashTagList.push(...[...sortedResult.keys()].slice(0, 4));
 
         // step3. 분류된 hashtag array 값으로 user를 update 한다. 그리고 그 updated 된 user 를 return
         await User.findOneAndUpdate({ userId: user.userId }, { hashtag: hashTagList }).exec();
@@ -102,6 +100,26 @@ export const updateUserHashTag = async (user) => {
         return err;
     }
 };
+
+
+// get all user and all making (update) hash tag
+// call by controller <- "makeDumpUserHashTag" fun
+export const getAllUserAndUpdateHashTag = async () => {
+    try {
+        const userList = await User.find({}).exec();
+        for (let i = 0; i < userList.length; i++) {
+            const user = userList[i];
+            await updateUserHashTag(user);
+        }
+
+        // 모두 정상적으로 끝나면,
+        return true;
+    } catch (err) {
+        console.error(err);
+        return err;
+    }
+}
+
 
 
 // user delete

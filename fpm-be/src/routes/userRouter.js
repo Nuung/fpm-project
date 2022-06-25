@@ -4,7 +4,9 @@
 
 import { validateUserCreate } from '../middlewares/validators/userValidator.js';
 import { authCheck } from '../middlewares/auth.js';
-import { signUp, signIn, genRefreshToken, getUser, getUserHashtag, makeDumpUser, deletAllUser } from '../controllers/userController.js';
+import { signUp, signIn, genRefreshToken, 
+    getUser, getUserHashtag, makeDumpUser, 
+    deletAllUser, makeDumpUserHashTag } from '../controllers/userController.js';
 
 // ==================== Routing ==================== //
 // https://velog.io/@ikswary/JWT%EC%9D%98-%EB%B3%B4%EC%95%88%EC%A0%81-%EA%B3%A0%EB%A0%A4%EC%82%AC%ED%95%AD
@@ -13,6 +15,7 @@ const userRouter = (app, endpoint) => {
     // dump data 만들기, all 삭제하기
     app.route(`${endpoint}/dump`).post(makeDumpUser);
     app.route(`${endpoint}/dump`).delete(deletAllUser);
+    app.route(`${endpoint}/hashtag/dump`).post(makeDumpUserHashTag)
 
     // 회원가입 벨리데이션
     // app.use(`${endpoint}`, validateUserCreate);
