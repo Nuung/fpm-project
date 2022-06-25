@@ -1,9 +1,7 @@
 'use strict';
 
-const login = () => {
-  const form = document.loginForm;
-  const {id,pw} = form;
-  fetch("/api/user/login",{
+const login = (id,pw) => {
+  fetch("http://fpm.local/api/user/login",{
           method: 'POST',
           headers :{
               'Content-Type': 'application/json',
