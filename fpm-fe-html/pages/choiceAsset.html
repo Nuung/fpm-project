@@ -17,6 +17,11 @@
     <link
       rel="stylesheet"
       type="text/css"
+      href="../public/asset/hover/css/hover.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
       href="../public/stylesheets/styleguide.css"
     />
     <link
@@ -269,7 +274,7 @@
         </div>
       </div>
     </div>
-    <button class="Btn" id="btn">
+    <button class="Btn hvr-grow" id="btn">
       <p class="text-48 fontbody0semibold">연동하기</p>
     </button>
   </body>
@@ -280,9 +285,16 @@
       const bankLists = document.querySelectorAll(".bank_list_icon");
       bankLists.forEach((bank) => {
         bank.addEventListener("click", (event) => {
-          bank.style["border-color"] = "#5100ff";
-          bank.style["border"] = "1px solid #5100ff";
-          bank.style["border-radius"] = "12%";
+          if (bank.classList.contains("click_active")) {
+            bank.style["border-color"] = "";
+            bank.style["border"] = "";
+            bank.style["border-radius"] = "";
+          } else {
+            bank.style["border-color"] = "#5100ff";
+            bank.style["border"] = "1px solid #5100ff";
+            bank.style["border-radius"] = "12%";
+          }
+          bank.classList.toggle("click_active");
         });
       });
 
