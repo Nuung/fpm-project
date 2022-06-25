@@ -8,7 +8,7 @@ export const createMessage = async (body, fromUser) => {
         const newMessage = new Message({
             userId: toUserId,
             fromUserId: fromUser.userId,
-            fromUserNickName: fromUser.fromUserNickName,
+            fromUserNickName: fromUser.nickName,
             msg: msg,
         });
         const saveMessage = await newMessage.save();
@@ -51,7 +51,6 @@ export const getAllMessageAndRead = async (userId, fromUserId) => {
 export const getAllUnReadMessage = async (userId) => {
 
     try {
-
         // // userId의 안읽은 msg모두 가져온다. 
         // 그리고 fromUserId 값 기반으로 grouping 해준다.
         const userMessage = await Message.aggregate(
@@ -60,8 +59,7 @@ export const getAllUnReadMessage = async (userId) => {
                 { "$sort": { "createdAt": 1 } },
                 { "$group": { 
                     "_id": "$fromUserId",
-                    "userId": { "$last": "$userId" },
-                    "nickName": { "$last": "$nickName"},
+                    "fromUserNickName": { "$first": "$fromUserNickName"},
                     "msg": { "$last": "$msg" },
                     "createdAt": { "$last": "$createdAt" },
                     "counts": {
