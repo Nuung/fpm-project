@@ -1,20 +1,80 @@
 /* Place the navbar at the bottom of the page, and make it stick */
-.navbar_buttom {
-    text-align: center;
-    background-color: #6200EE;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+/* The following line is used to measure usage of this code in production. For more info see our usage billing page */
+@import url("https://px.animaapp.com/62b65905b2ead54668682a6d.62b65906b2ead54668682a70.0ICoVhR.hcp.png");
+
+@font-face {
+  font-family: "Pretendard-Bold";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Pretendard-Bold.otf") format("opentype");
 }
-  
-/* Style the links inside the navigation bar */
-.navbar_buttom p {
-    text-align: center;
-    display: block;
-    color: #f2f2f2;
-    padding: 10px 10px;
-    text-decoration: none;
-    font-size: 1rem;
+@font-face {
+  font-family: "Pretendard-Medium";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Pretendard-Medium.otf") format("opentype");
 }
+@font-face {
+  font-family: "Pretendard-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Pretendard-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "Pretendard-SemiBold";
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/Pretendard-SemiBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "SF Pro Text-Semibold";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/FontsFree-Net-SFProText-Semibold-1.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Pretendard-Light";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Pretendard-Light.otf") format("opentype");
+}
+
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 
