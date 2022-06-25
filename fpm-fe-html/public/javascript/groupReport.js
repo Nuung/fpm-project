@@ -21,7 +21,12 @@ $(document).ready(function(){
             $("#hashtag" + i).text(hashtags[i - 1]);
           }
           $(".nickName").text(nickName);
-          $(".totalAmt").text((localStorage.getItem('depositTotalAmt')+localStorage.getItem('insureAmt')+localStorage.getItem('irpAmt')+localStorage.getItem('stockAmt')+localStorage.getItem('realAmt')).toLocaleString());
+
+          console.log(localStorage.getItem('depositTotalAmt'))
+          console.log(localStorage.getItem('insureAmt'));
+
+
+          $(".totalAmt").text((parseInt(localStorage.getItem('depositTotalAmt'))+parseInt(localStorage.getItem('insureAmt'))+parseInt(localStorage.getItem('irpAmt'))+parseInt(localStorage.getItem('stockAmt'))+parseInt(localStorage.getItem('realAmt'))).toLocaleString());
           let idx = 1;
           $.each(top3Spend, function(key, value){
             //console.log(key, value);
