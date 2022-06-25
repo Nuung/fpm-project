@@ -16,20 +16,23 @@ const loginEvent = () => {
           body: JSON.stringify(requestBody)
       }) 
       .then(response => {
-        console.log(response);
         if (response.ok && response.status == 201) {
-          document.cookie = "jwt_token="+response['data']['token'];
-          alert("로그인 성공");  
-          console.log(document.cookie);
-          return location.href="mainPage.html";
+          return response.json();
         }
         else {
-          alert("로그인 실패, id pw 확인");  
+          alert("로그인 실패, id pw 확인");
+          throw Error("로그인 실패, id pw 확인");
         }
       })
+      .then((res) => {
+        document.cookie = `jwt_token=${res['data']['token']}`;
+        console.log(document.cookie);
+        alert("로그인 성공");
+        return location.href="mainPage.html";
+      })
       .catch(err => {
-        alert("로그인 실패! 메인 화면으로 돌아갑니다");
-        location.href="../index.html";
+        alert(err);
+        //location.href="../index.html";
       });
 };
 
