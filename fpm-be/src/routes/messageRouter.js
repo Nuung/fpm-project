@@ -15,7 +15,7 @@ const messageRouter = (app, endpoint) => {
 
     // message 전송
     app.use(`${endpoint}`, authCheck);
-    app.route(`${endpoint}/`).post(sendMessage);
+    app.route(`${endpoint}`).post(sendMessage);
     
     app.use(`${endpoint}s`, authCheck);
     app.route(`${endpoint}s`).get(listOfMessage);

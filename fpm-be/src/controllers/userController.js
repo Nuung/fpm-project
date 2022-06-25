@@ -81,6 +81,7 @@ export const signIn = async (req, res) => {
                 secure: false,          // only transfer over https
                 sameSite: true,         // only sent for requests to the same FQDN as the domain in the cookie
             };
+            res.cookie('jwt_token', token, options);
             return res.status(201).json({ data });
         }
     } catch (error) {
