@@ -1,33 +1,49 @@
-$("form").submit(function(event) {
-    
-});
+'use strict';
 
-$('#btn').click(function () {
-    var id = $('#id').val();
-    var pw = $('#pw').val();
-    
-    if (id == "") {
-        alert("id를 입력해주세요.");
-        return;
-    }
-    
-    if (pw == "") {
-        alert("pw를 입력해주세요.");
-        return;
-    }   
+// event
+const loginEvent = () => {
 
-    $.ajax({
-        type: "POST", 
-        url: "http://api.fpm.local/api/user/login", 
-        data: {
-            userId: this.id,
-            password: this.pw
-        },
-        success: function (res) {
-          console.log(res);
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-          alert("통신 실패.");
-        },
+  const requestBody = {
+    'userId': document.getElementById("id").value,
+    'password': document.getElementById("pw").value
+  };
+
+  fetch("http://fpm.local/api/user/login",{
+          method: 'POST',
+          headers :{
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(requestBody)
+      }) 
+      .then(response => {
+        // document.cookie = "jwt_token="+response['data']['token'];
+        if (response.ok && response.status == 201) {
+          alert("로그인 성공");  
+          return location.href="mainPage.html";
+        }
+        else {
+          alert("로그인 실패, id pw 확인");  
+        }
+      })
+      .catch(err => {
+        alert("로그인 실패! 메인 화면으로 돌아갑니다");
       });
+};
+
+// dom ready init function
+const init = () => {
+  const loginBtn = document.getElementById("btn");
+  console.log(loginBtn);
+  loginBtn.addEventListener("click", (event) => {
+    loginEvent();
+  });
+};
+
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  
+  // Handler when the DOM is fully loaded
+  init();
+
 });

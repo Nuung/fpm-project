@@ -36,26 +36,23 @@
           </div>
           <img class="right-side" src="../public/images/right-side-6@2x.svg" />
         </div>
-        <div class="group-1811">
-          <div class="text-46 valign-text-middle">아이디</div>
-          <div class="frame-39"><input type="text" id="id" placeholder="asdf@asdf.com"></div>
-          <div class="text-47 valign-text-middle">비밀번호</div>
-          <div class="frame-39"><input type="password" id="pass" placeholder="asdf@asdf.com"></div>
-        </div>
-        <a href="2.html">
-          <div class="frame-92">
-            <div class="text-48 fontbody0semibold">로그인</div>
+        <form name="loginForm" method="post">
+          <div class="group-1811">
+              <div class="text-46 valign-text-middle">아이디</div>
+              <div class="frame-39"><input type="text" id="id" placeholder="ID"></div>
+              <div class="text-47 valign-text-middle">비밀번호</div>
+              <div class="frame-39"><input type="password" id="pw" placeholder="Password"></div>
           </div>
-        </a><img class="clear" src="../public/images/clear@2x.svg" />
+        </form>  
+        <div class="frame-92">
+          <button class="text-48 fontbody0semibold" id ="btn">로그인</button>
+        </div>
+        <a href="../index.html">
+          <img class="clear" src="../public/images/clear@2x.svg" />
+        </a>  
       </div>
     </div>
   </div>
-  <!-- Bootstrap core JavaScript-->
-  <script src="../public/asset/bootstrap/js/jquery.min.js"></script>
-  <script src="../public/asset/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="../public/asset/bootstrap/js/jquery.easing.min.js"></script>
 
   <!-- signIn.js -->
   <script src="../public/javascript/signIn.js"></script>
