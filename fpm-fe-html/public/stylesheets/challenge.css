@@ -762,7 +762,7 @@
 
 .x3-1 .vector {
     height: 15px;
-    left: 19px;
+    /* left: 19px; */
     position: absolute;
     top: 1px;
     width: 12px;
