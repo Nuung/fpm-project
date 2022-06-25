@@ -58,27 +58,6 @@ const getUnreadMsg = () => {
 
 };
 
-//상대방에게 채팅 보내기
-const sendMsg = () => {
-    const requestBody = {
-        "toUserId":toUserId,
-        "msg":document.getElementById('chatt').value
-    }
-    fetch("http://fpm.local/api/message",{
-        method: 'POST',
-        headers :{
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody)
-    }) 
-    .then(response => {
-        return getUnreadMsg();
-    })
-    .catch(err => {
-        console.warn(err);
-    });
-  
-}
 // dom ready init function
 const init = () => {
     getUnreadMsg();
