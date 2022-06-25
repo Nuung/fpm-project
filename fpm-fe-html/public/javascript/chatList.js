@@ -33,9 +33,11 @@ const getUnreadMsg = () => {
         for(let i =0;i< res.allMessage.length;i++) {
             const {_id,counts,msg,nickName,createdAt} = res.allMessage[i];
             console.log(res.allMessage[i]);
-            let chatRoom = `<div class="group-1816"> <div class="text-container"> <div class="nickNm fonth3">`;
+            let chatRoom = `<div class="group-1816"> <div class="text-container"> <a href ="chatting.html?userId=`;
+            chatRoom += _id;
+            chatRoom += `" ><div class="nickNm fonth3">`;
             chatRoom += nickName;
-            chatRoom += `</div> <div class="sendDate fontbody3">`;
+            chatRoom += `</div> </a><div class="sendDate fontbody3">`;
             chatRoom += createdAt.substring(0,10);
             chatRoom += `</div> </div> <div class="flex-row"> <p class="text-13 pretendard-regular-normal-nevada-16px">`;
             chatRoom += msg;
