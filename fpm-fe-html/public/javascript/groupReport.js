@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    $('#loading').hide();
     const selectedTag = location.href.split('?')[1];
     $('#'+selectedTag).toggleClass('selected');
     jQuery('.selected').parent('div').css('background', '#EEE5FF');
@@ -64,9 +64,36 @@ $("[id^=hashtag]").on("click", function(){
   jQuery('.selected').parent('div').css('background', '#FFFFFF');
   jQuery('.selected').parent('div').css('border-color', '#D1D7DF');
   $(this).toggleClass('selected');
-  let selectedTag = document.querySelector('.selected');
   jQuery('.selected').parent('div').css('background', '#EEE5FF');
   jQuery('.selected').parent('div').css('border-color', '#BA99FF');
+
+  let tagText = []
+  let selectedTag = document.querySelectorAll('.selected');
+  for(let i=0; i<selectedTag.length; i++){
+    tagText.push(selectedTag[i].outerText)
+  }
+
+  let data = {
+    hashtag: JSON.stringify(tagText)
+  }
+
+  $.ajax({
+    type: "GET",
+    url: "http://api.fpm.local/api/financial/user/rank",
+    headers: {
+      authorization:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNqY2YwaHM1ZmNkazI2MSIsImlhdCI6MTY1NjEzOTIyMSwiZXhwIjoxNjg3Njc1MjIxLCJpc3MiOiJmcG0ifQ.wpt9TFqGXJfAYXTIBSj2BeTBY2vqm-oFEhM91Gi_pKc",
+    },
+    data: data,
+    success: function (res) {
+      let percentage = Math.round(100-res["data"]["userRank"]["percent"]);
+      $("#percentage").text(percentage);
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("통신 실패.");
+    },
+  });
+
   if(selectedTag === null)
     location.href = "mainPage.html";
 });
