@@ -1,33 +1,23 @@
-$("form").submit(function(event) {
-    
-});
+'use strict';
 
-$('#btn').click(function () {
-    var id = $('#id').val();
-    var pw = $('#pw').val();
-    
-    if (id == "") {
-        alert("id를 입력해주세요.");
-        return;
-    }
-    
-    if (pw == "") {
-        alert("pw를 입력해주세요.");
-        return;
-    }   
-
-    $.ajax({
-        type: "POST", 
-        url: "http://api.fpm.local/api/user/login", 
-        data: {
-            userId: this.id,
-            password: this.pw
-        },
-        success: function (res) {
-          console.log(res);
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-          alert("통신 실패.");
-        },
+const login = (id,pw) => {
+  fetch("http://api.fpm.local/api/user/login",{
+          method: 'POST',
+          headers :{
+              'Content-Type': 'application/json',
+          },
+          body:{
+            'userId':'bhm7266',
+            'password':'1234'
+          }
+      }) 
+      .then(response => {
+          return location.href="mainPage.html";
+      })
+      .catch(err => {
+        console.log("로그인 실패! 메인 화면으로 돌아갑니다");
+        return location.href="../index.html";
       });
-});
+};
+
+login('bhm7266','');
