@@ -4,7 +4,7 @@ import {
     makeToken, makeRefreshToken,
     findUserById, findUserByPwd, createUser,
     deleteUserAll,
-    updateUserHashTag
+    updateUserHashTag, getAllUserAndUpdateHashTag
 } from '../service/userService.js';
 
 import { makeUserDumpData } from '../models/data_generate/userDump.js';
@@ -160,6 +160,22 @@ export const getUserHashtag = async (req, res) => {
     }
 };
 
+
+// All user hash tag data dump making
+//  🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+// 🔥🔥 무조건 user -> deposit 을 만든 뒤에 호출해야함 🔥🔥
+//  🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+export const makeDumpUserHashTag = async (req, res) => {
+    try {
+        const result = await getAllUserAndUpdateHashTag();
+        if (result === true) {
+            return res.status(201).json({msg: "User hash tag dump data 생성 성공"});    
+        }
+        return res.status(400).json({msg: "User hash tag dump data 생성 실패"});
+    } catch (error) {
+        return res.status(400).json({msg: "User hash tag dump data 생성 실패"});
+    }
+}; 
 
 // dump data 만들기
 export const makeDumpUser = async (req, res) => {
