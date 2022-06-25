@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    let token = document.cookie.split('=')[1];
     const selectedTag = location.href.split('?')[1];
     $('#'+selectedTag).toggleClass('selected');
     jQuery('.selected').parent('div').css('background', '#EEE5FF');
@@ -10,7 +10,7 @@ $(document).ready(function(){
         url: "http://api.fpm.local/api/financial",
         headers: {
           authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNqY2YwaHM1ZmNkazI2MSIsImlhdCI6MTY1NjEzOTIyMSwiZXhwIjoxNjg3Njc1MjIxLCJpc3MiOiJmcG0ifQ.wpt9TFqGXJfAYXTIBSj2BeTBY2vqm-oFEhM91Gi_pKc",
+            token,
         },
         success: function (res) {
           console.log(res);
@@ -37,6 +37,27 @@ $(document).ready(function(){
         },
       });
 
+
+      $.ajax({
+        type: "GET",
+        url: "http://api.fpm.local/api/user/hashtag/recommand",
+        headers: {
+          authorization:
+          document.cookie.split('=')[1],
+        },
+        success: function (res) {
+          recomm1 = res['recommandUsers'][0]['nickName'];
+          recomm2 = res['recommandUsers'][1]['nickName'];
+          recomm3 = res['recommandUsers'][2]['nickName'];
+    
+          $("#recommUser1").text(recomm1);
+          $("#recommUser2").text(recomm2);
+          $("#recommUser3").text(recomm3);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          alert("통신 실패.");
+        },
+      });  
       
     $(window).on('load', function () {
       let tag = document.querySelector('.selected').outerText;
@@ -49,7 +70,7 @@ $(document).ready(function(){
         url: "http://api.fpm.local/api/financial/user/rank",
         headers: {
           authorization:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNqY2YwaHM1ZmNkazI2MSIsImlhdCI6MTY1NjEzOTIyMSwiZXhwIjoxNjg3Njc1MjIxLCJpc3MiOiJmcG0ifQ.wpt9TFqGXJfAYXTIBSj2BeTBY2vqm-oFEhM91Gi_pKc",
+            token,
         },
         data: data,
         success: function (res) {
@@ -88,7 +109,7 @@ $("[id^=hashtag]").on("click", function(){
     url: "http://api.fpm.local/api/financial/user/rank",
     headers: {
       authorization:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNqY2YwaHM1ZmNkazI2MSIsImlhdCI6MTY1NjEzOTIyMSwiZXhwIjoxNjg3Njc1MjIxLCJpc3MiOiJmcG0ifQ.wpt9TFqGXJfAYXTIBSj2BeTBY2vqm-oFEhM91Gi_pKc",
+        token,
     },
     data: data,
     success: function (res) {
@@ -100,4 +121,58 @@ $("[id^=hashtag]").on("click", function(){
     },
   });
 
+});
+
+$(".rectangle-3380").on("click", function(){
+  $.ajax({
+    type: "GET",
+    url: "http://api.fpm.local/api/user/hashtag/recommand",
+    headers: {
+      authorization:
+      document.cookie.split('=')[1],
+    },
+    success: function (res) {
+      userId = res['recommandUsers'][0]['userId'];
+      location.href = `profile.html?${userId}`
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("통신 실패.");
+    },
+  });
+});
+
+$(".rectangle-3381").on("click", function(){
+  $.ajax({
+    type: "GET",
+    url: "http://api.fpm.local/api/user/hashtag/recommand",
+    headers: {
+      authorization:
+      document.cookie.split('=')[1],
+    },
+    success: function (res) {
+      userId = res['recommandUsers'][1]['userId'];
+      location.href = `profile.html?${userId}`
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("통신 실패.");
+    },
+  });
+});
+
+$(".rectangle-3382").on("click", function(){
+  $.ajax({
+    type: "GET",
+    url: "http://api.fpm.local/api/user/hashtag/recommand",
+    headers: {
+      authorization:
+      document.cookie.split('=')[1],
+    },
+    success: function (res) {
+      userId = res['recommandUsers'][2]['userId'];
+      location.href = `profile.html?${userId}`
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("통신 실패.");
+    },
+  });
 });
