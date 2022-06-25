@@ -38,10 +38,12 @@ app.use(session({ // app session
         secure: false,
     },
 }));
-app.use(cors({  // CORS 설정
-    origin: true,
-    credentials: true
-}));
+// app.use(cors({  // CORS 설정
+//     origin: true,
+//     credentials: true
+// }));
+app.use(cors());
+
 app.set('jwt-secret', process.env.JWT_SECRET); // set the secret key variable for jwt
 
 

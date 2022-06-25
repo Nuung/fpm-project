@@ -2,6 +2,7 @@
 
 import pandas as pd
 import numpy as np
+import random
 from util.mongodb import (DbCon)
 from sklearn.preprocessing import MinMaxScaler 
 from sklearn.cluster import KMeans
@@ -22,7 +23,11 @@ for i, user in enumerate(users):
             total_asset += int(value)
     
     # data frame에 세팅
-    df.loc[i] = [user["age"].split("대")[0], total_asset]
+    # 나이대만 좀 랜덤으로
+    age_range = int(user["age"].split("대")[0])
+    user_age = random.randint(age_range, age_range + 9)
+    print(user_age)
+    df.loc[i] = [user_age, total_asset]
 
 
 # 데이터 전처리 - 노말라이제이션
