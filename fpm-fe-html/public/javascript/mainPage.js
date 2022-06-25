@@ -21,7 +21,22 @@ $(document).ready(function () {
       let irpAmt = res["data"]["userFinancialDetail"][0]["irpAmt"];
       let stockAmt = res["data"]["userFinancialDetail"][0]["stockAmt"];
       let realAmt = res["data"]["userFinancialDetail"][0]["realAmt"];
-      
+      let before = res["data"]["userFinancialDetail"][0]["spendCategory"]['before'];
+      let after = res["data"]["userFinancialDetail"][0]["spendCategory"]['after'];
+
+      let beforeSum = 0;
+      let afterSum = 0;
+
+      for(key in before){
+        beforeSum += before[key];
+      }
+
+      for(key in after){
+        afterSum += after[key];
+      }
+
+      $('#differ').text(Math.abs(beforeSum - afterSum).toLocaleString());
+
       localStorage.setItem('hashtag', hashtags); 
       localStorage.setItem('nickName', nickName);
       localStorage.setItem('follower', follower);
