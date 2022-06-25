@@ -63,3 +63,12 @@ export const getFinancialDetail = () => {
 getUser();
 getFinancialDetail();
 
+//cookie setting
+document.cookie = "nickName="+nickName;
+document.cookie = "hashTag="+hashTag;
+document.cookie = "follwer="+follwer;
+document.cookie = "depositAmt="+depositAmt;
+document.cookie = "insureAmt="+insureAmt;
+document.cookie = "irpAmt="+irpAmt;
+document.cookie = "stockAmt="+stockAmt;
+document.cookie = "realAmt="+realAmt;
