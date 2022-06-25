@@ -35,7 +35,7 @@ $(document).ready(function () {
         afterSum += after[key];
       }
 
-      $('#differ').text(Math.abs(beforeSum - afterSum).toLocaleString());
+      $('#differ').text(Math.round(Math.abs((beforeSum - afterSum)/10000)).toLocaleString());
 
       localStorage.setItem('hashtag', hashtags); 
       localStorage.setItem('nickName', nickName);
@@ -70,9 +70,9 @@ $(document).ready(function () {
       $('#amt2').text(amtsname[keysSorted[1]]);
       $('#amt3').text(amtsname[keysSorted[2]]);
 
-      $('#amtamt1').text(amts[keysSorted[0]].toLocaleString());
-      $('#amtamt2').text(amts[keysSorted[1]].toLocaleString());
-      $('#amtamt3').text(amts[keysSorted[2]].toLocaleString());
+      $('#amtamt1').text(Math.round(amts[keysSorted[0]]/10000).toLocaleString());
+      $('#amtamt2').text(Math.round(amts[keysSorted[1]]/10000).toLocaleString());
+      $('#amtamt3').text(Math.round(amts[keysSorted[2]]/10000).toLocaleString());
 
       for (let i = 1; i <= 6; i++) {
         $("#hashtag" + i).text(hashtags[i - 1]);
@@ -105,6 +105,18 @@ $(document).ready(function () {
       alert("통신 실패.");
     },
   });
+
+  let rand = Math.floor((Math.random() * 2) + 1);
+  $('#lifestyle').attr("src","../public/images/lifestyle" + rand + ".png");
+
+  let rands = [];
+  while(rands.length < 3){
+      let r = Math.floor(Math.random() * 6) + 1;
+      if(rands.indexOf(r) === -1) rands.push(r);
+  }
+  $('#pattern1').attr("src","../public/images/pattern" + rands[0] + ".png");
+  $('#pattern2').attr("src","../public/images/pattern" + rands[1] + ".png");
+  $('#pattern3').attr("src","../public/images/pattern" + rands[2] + ".png");
 });
 
 $("[id^=hashtag]").on("click", function(){
@@ -116,6 +128,60 @@ $("[id^=hashtag]").on("click", function(){
     let id = selectedTag.id;
     location.href = `groupReport.html?${id}`
   }
+});
+
+$(".rectangle-3380").on("click", function(){
+  $.ajax({
+    type: "GET",
+    url: "http://api.fpm.local/api/user/hashtag/recommand",
+    headers: {
+      authorization:
+      document.cookie.split('=')[1],
+    },
+    success: function (res) {
+      userId = res['recommandUsers'][0]['userId'];
+      location.href = `profile.html?${userId}`
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("통신 실패.");
+    },
+  });
+});
+
+$(".rectangle-3381").on("click", function(){
+  $.ajax({
+    type: "GET",
+    url: "http://api.fpm.local/api/user/hashtag/recommand",
+    headers: {
+      authorization:
+      document.cookie.split('=')[1],
+    },
+    success: function (res) {
+      userId = res['recommandUsers'][1]['userId'];
+      location.href = `profile.html?${userId}`
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("통신 실패.");
+    },
+  });
+});
+
+$(".rectangle-3382").on("click", function(){
+  $.ajax({
+    type: "GET",
+    url: "http://api.fpm.local/api/user/hashtag/recommand",
+    headers: {
+      authorization:
+      document.cookie.split('=')[1],
+    },
+    success: function (res) {
+      userId = res['recommandUsers'][2]['userId'];
+      location.href = `profile.html?${userId}`
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      alert("통신 실패.");
+    },
+  });
 });
 
 $(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것

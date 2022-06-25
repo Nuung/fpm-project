@@ -108,7 +108,7 @@
 
 .frame-388 .group-2 {
   align-items: flex-end;
-  background-image: url(../img/ellipse-18@2x.svg);
+  background-image: url(../images/ellipse-18@2x.svg);
   background-size: 100% 100%;
   display: flex;
   height: 180px;
@@ -154,7 +154,7 @@
   align-items: center;
   display: flex;
   height: 26px;
-  left: 450px;
+  left: 472px;
   min-width: 77px;
   position: absolute;
   top: 631px;
@@ -226,7 +226,7 @@
 .frame-388 .nnnn {
   color: var(--gray454955);
   font-weight: 700;
-  left: 480px;
+  left: 520px;
   line-height: 24px;
   position: absolute;
   text-align: right;
@@ -257,7 +257,7 @@
 .frame-388 .nnn {
   color: var(--gray454955);
   font-weight: 700;
-  left: 480px;
+  left: 520px;
   line-height: 24px;
   position: absolute;
   text-align: right;
@@ -288,7 +288,7 @@
 .frame-388 .nnn-1 {
   color: var(--gray454955);
   font-weight: 700;
-  left: 480px;
+  left: 520px;
   line-height: 24px;
   position: absolute;
   text-align: right;
@@ -1418,7 +1418,7 @@
 }
 
 .frame-388 .overlap-group2-2 {
-  background-image: url(../img/rectangle-25@2x.png);
+  background-image: url(../images/rectangle-25@2x.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 180px;
@@ -1530,7 +1530,7 @@
 }
 
 .frame-388 .overlap-group1-2 {
-  background-image: url(../img/rectangle-3377@2x.png);
+  background-image: url(../images/rectangle-3377@2x.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 180px;
