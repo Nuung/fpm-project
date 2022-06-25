@@ -38,10 +38,13 @@ export const getUser = () => {
 
 //get financial detail 후 변수에 저장
 export const getFinancialDetail = () => {
+    console.log(document.cookie);
+    const authorization = document.cookie.authorization;
+
     fetch("http://api.fpm.local/api/financial/"+userId,{
             headers :{
                 'Content-Type': 'application/json',
-                'authorization':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJobTcyNjYiLCJpYXQiOjE2NTYxMjQ3ODcsImV4cCI6MTY4NzY2MDc4NywiaXNzIjoiZnBtIn0.25uY1FLmUWx1ftYqk0Ra7XgV6m7Q_i9L6ZIG-rp9izk'
+                'authorization':authorization
             }
         }) 
         .then(response => {
